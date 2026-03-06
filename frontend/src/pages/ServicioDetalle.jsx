@@ -1,10 +1,11 @@
+```
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
     CheckCircle2, ArrowLeft, Send, CheckCircle,
     AlertCircle, Star, Users, Briefcase, Zap,
     TrendingUp, Rocket, Shield, Target, Clock,
-    ArrowRight
+    ArrowRight, Calendar
 } from 'lucide-react';
 import axios from 'axios';
 import { ASSETS } from '../lib/assets';
@@ -163,14 +164,14 @@ const ServicioDetalle = () => {
 
         const payload = {
             ...formData,
-            message: `[Servicio: ${plan.name}] Motivo: ${formData.message}`,
+            message: `[Servicio: ${ plan.name }]Motivo: ${ formData.message } `,
             service: plan.name,
             consent: true // Requerido por el backend
         };
 
         try {
             const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
-            await axios.post(`${backendUrl}/api/contact`, payload);
+            await axios.post(`${ backendUrl } /api/contact`, payload);
             setIsSubmitted(true);
             window.scrollTo(0, 0);
         } catch (err) {
@@ -226,11 +227,11 @@ const ServicioDetalle = () => {
             <section className="relative pt-32 pb-20 overflow-hidden">
                 {/* Glow decorativo */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 opacity-20 blur-[120px]"
-                    style={{ background: `radial-gradient(circle, ${plan.color} 0%, transparent 70%)` }} />
+                    style={{ background: `radial - gradient(circle, ${ plan.color } 0 %, transparent 70 %)` }} />
 
                 <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
                     <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold mb-6 border"
-                        style={{ borderColor: `${plan.color}40`, color: plan.color, background: `${plan.color}10` }}>
+                        style={{ borderColor: `${ plan.color } 40`, color: plan.color, background: `${ plan.color } 10` }}>
                         {plan.badge}
                     </span>
                     <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tight leading-none">
@@ -325,7 +326,7 @@ const ServicioDetalle = () => {
                     <form onSubmit={handleSubmit} className="space-y-6">
                         {/* Servicio seleccionado (Readonly) */}
                         <div className="p-4 rounded-xl border flex items-center justify-between"
-                            style={{ backgroundColor: `${plan.color}10`, borderColor: `${plan.color}40` }}>
+                            style={{ backgroundColor: `${ plan.color } 10`, borderColor: `${ plan.color } 40` }}>
                             <div>
                                 <span className="text-[10px] font-bold uppercase tracking-widest block opacity-60 mb-1">Servicio seleccionado</span>
                                 <span className="font-bold text-lg">Plan {plan.name}</span>
