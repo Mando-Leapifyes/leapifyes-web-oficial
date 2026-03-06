@@ -3,7 +3,7 @@ import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import {
     BarChart3, Users, Building2, ClipboardList,
     BrainCircuit, Activity, Settings, LogOut,
-    ChevronLeft, Menu, Bell
+    ChevronLeft, Menu, Bell, BarChart2
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
@@ -12,6 +12,7 @@ const navigation = [
     { name: 'Leads & Formularios', href: '/admin/leads', icon: Users },
     { name: 'Diagnósticos IMD', href: '/admin/diagnostics', icon: ClipboardList },
     { name: 'Inteligencia Artificial', href: '/admin/ai-logs', icon: BrainCircuit },
+    { name: 'Analítica Web', href: '/admin/analytics', icon: BarChart2 },
     { name: 'Clientes & Proyectos', href: '/admin/projects', icon: Building2 },
     { name: 'Estado del Sistema', href: '/admin/system', icon: Activity },
 ];
@@ -83,8 +84,8 @@ const AdminLayout = () => {
                                 key={item.name}
                                 to={item.href}
                                 className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive
-                                        ? 'bg-[#1B93A4]/10 text-[#1B93A4]'
-                                        : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+                                    ? 'bg-[#1B93A4]/10 text-[#1B93A4]'
+                                    : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
                                     }`}
                             >
                                 <item.icon className="w-5 h-5" />

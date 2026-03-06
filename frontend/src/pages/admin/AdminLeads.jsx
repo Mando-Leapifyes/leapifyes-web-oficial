@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
     Search, Filter, ExternalLink, Calendar,
-    Mail, Phone, Building2, MapPin, Briefcase, ChevronRight, Loader2, ArrowLeft
+    Mail, Phone, Building2, MapPin, Briefcase, ChevronRight, Loader2, ArrowLeft, Clock, Eye, MousePointerClick, FileText, Target
 } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
@@ -25,6 +25,8 @@ const AdminLeads = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filterStatus, setFilterStatus] = useState('all');
     const [selectedLead, setSelectedLead] = useState(null);
+    const [timeline, setTimeline] = useState([]);
+    const [timelineLoading, setTimelineLoading] = useState(false);
 
     useEffect(() => {
         fetchLeads();
@@ -91,9 +93,34 @@ const AdminLeads = () => {
         }
     };
 
+    const fetchTimeline = async (leadId) => {
+        try {
+            setTimelineLoading(true);
+            const res = await axios.get(`${BACKEND_URL}/api/admin/leads/${leadId}/timeline`);
+            setTimeline(res.data || []);
+        } catch (err) {
+            setTimeline([]);
+        } finally {
+            setTimelineLoading(false);
+        }
+    };
+
     // === DRAWER (Lead Detail View) ===
     if (selectedLead) {
         const status = selectedLead.status || 'new';
+
+        // Fetch timeline on selectedLead change
+        if (timeline.length === 0 && !timelineLoading) {
+            fetchTimeline(selectedLead.id);
+        }
+
+        const EVENT_LABELS = {
+            'page_view': { label: 'Visitó página', icon: Eye, color: 'text-blue-400 bg-blue-500/10' },
+            'form_submit': { label: 'Envió formulario', icon: FileText, color: 'text-emerald-400 bg-emerald-500/10' },
+            'diagnosis_start': { label: 'Inició diagnóstico', icon: Target, color: 'text-amber-400 bg-amber-500/10' },
+            'diagnosis_complete': { label: 'Completó diagnóstico', icon: Target, color: 'text-[#D946EF] bg-[#D946EF]/10' },
+            'cta_click': { label: 'Hizo clic en CTA', icon: MousePointerClick, color: 'text-[#1B93A4] bg-[#1B93A4]/10' },
+        };
 
         return (
             <div className="space-y-6">
@@ -153,6 +180,50 @@ const AdminLeads = () => {
                                     "{selectedLead.message || 'Sin mensaje'}"
                                 </div>
                             </div>
+                        </div>
+
+                        {/* Lead Timeline */}
+                        <div className="bg-slate-800/40 border border-slate-700/50 rounded-xl p-6">
+                            <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                                <Clock className="w-5 h-5 text-[#1B93A4]" />
+                                Timeline de Actividad
+                            </h3>
+                            {timelineLoading ? (
+                                <div className="flex items-center justify-center py-6">
+                                    <Loader2 className="w-5 h-5 animate-spin text-slate-500" />
+                                </div>
+                            ) : timeline.length === 0 ? (
+                                <p className="text-sm text-slate-500 py-4 text-center">No hay eventos registrados para este lead.</p>
+                            ) : (
+                                <div className="relative ml-4">
+                                    <div className="absolute left-0 top-0 bottom-0 w-px bg-slate-700" />
+                                    <div className="space-y-4">
+                                        {timeline.map((evt, i) => {
+                                            const config = EVENT_LABELS[evt.type] || { label: evt.type, icon: Clock, color: 'text-slate-400 bg-slate-500/10' };
+                                            const EvtIcon = config.icon;
+                                            return (
+                                                <div key={i} className="relative flex items-start gap-3 pl-6">
+                                                    <div className={`absolute left-0 -translate-x-1/2 w-6 h-6 rounded-full flex items-center justify-center ${config.color} border border-slate-700`}>
+                                                        <EvtIcon className="w-3 h-3" />
+                                                    </div>
+                                                    <div className="flex-1 min-w-0">
+                                                        <p className="text-sm text-white font-medium">
+                                                            {config.label}
+                                                            {evt.page && <span className="text-slate-400 font-normal"> — {evt.page}</span>}
+                                                        </p>
+                                                        <p className="text-xs text-slate-500 mt-0.5">
+                                                            {evt.timestamp ? new Date(evt.timestamp).toLocaleString('es-ES', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '-'}
+                                                        </p>
+                                                        {evt.metadata?.score !== undefined && (
+                                                            <p className="text-xs text-[#D946EF] mt-0.5">Score: {evt.metadata.score}/100</p>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            )}
                         </div>
 
                         {/* Acciones Comerciales Dummy placeholder */}

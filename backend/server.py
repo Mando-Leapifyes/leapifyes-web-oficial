@@ -21,6 +21,10 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
+# Email Service (Brevo — prepared, not active)
+from email_service import EmailService
+email_svc = EmailService(db)
+
 # JWT Config
 JWT_SECRET = os.environ.get('JWT_SECRET', 'fallback-secret-change-in-production')
 JWT_ALGORITHM = "HS256"
@@ -182,6 +186,35 @@ class Newsletter(BaseModel):
     active: bool = True
 
 
+# === Event & Alert Models ===
+
+class EventLogCreate(BaseModel):
+    type: str  # page_view, form_submit, diagnosis_start, etc.
+    page: str = ""
+    session_id: str = ""
+    user_id: Optional[str] = None
+    metadata: dict = {}
+
+class EventLog(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    type: str
+    page: str = ""
+    session_id: str = ""
+    user_id: Optional[str] = None
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    metadata: dict = {}
+
+class Alert(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    type: str  # traffic_spike, new_lead, ai_usage, etc.
+    message: str
+    severity: str = "info"  # info, warning, critical
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    resolved: bool = False
+
+
 # === Auth Helpers ===
 
 def hash_password(password: str) -> str:
@@ -227,24 +260,235 @@ async def require_admin(user: dict = Depends(require_auth)) -> dict:
 # === Admin Routes ===
 
 @api_router.get("/admin/dashboard/kpis")
-async def get_admin_dashboard_kpis(admin: dict = Depends(require_admin)):
-    """Get high-level KPIs for super_admin/admin dashboard"""
-    leads_count = await db.contacts.count_documents({})
-    diagnostics_count = await db.diagnostics.count_documents({})
-    projects_count = await db.projects.count_documents({})
+async def get_admin_dashboard_kpis(period: str = "7d", admin: dict = Depends(require_admin)):
+    """Get high-level KPIs with trends for admin dashboard.
+    period: 'today', '7d', '30d'
+    """
+    now = datetime.now(timezone.utc)
     
-    # Simple recent counts (last 30 days logic placeholder)
-    recent_leads = await db.contacts.count_documents({"status": "new"})
-    recent_diagnostics = await db.diagnostics.count_documents({"score": {"$gt": 0}})
-
+    # Determine period boundaries
+    if period == "today":
+        current_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        previous_start = current_start - timedelta(days=1)
+        previous_end = current_start
+        period_label = "vs ayer"
+    elif period == "30d":
+        current_start = now - timedelta(days=30)
+        previous_start = current_start - timedelta(days=30)
+        previous_end = current_start
+        period_label = "vs 30 días anteriores"
+    else:  # 7d default
+        current_start = now - timedelta(days=7)
+        previous_start = current_start - timedelta(days=7)
+        previous_end = current_start
+        period_label = "vs semana anterior"
+    
+    current_iso = current_start.isoformat()
+    previous_iso = previous_start.isoformat()
+    previous_end_iso = previous_end.isoformat()
+    
+    # --- Leads ---
+    leads_total = await db.contacts.count_documents({})
+    leads_current = await db.contacts.count_documents({"created_at": {"$gte": current_iso}})
+    leads_previous = await db.contacts.count_documents({"created_at": {"$gte": previous_iso, "$lt": previous_end_iso}})
+    
+    # --- Diagnostics ---
+    diagnostics_total = await db.diagnostics.count_documents({})
+    diag_current = await db.diagnostics.count_documents({"created_at": {"$gte": current_iso}})
+    diag_previous = await db.diagnostics.count_documents({"created_at": {"$gte": previous_iso, "$lt": previous_end_iso}})
+    
+    # --- Projects ---
+    projects_total = await db.projects.count_documents({})
+    
+    # --- Users ---
+    users_total = await db.users.count_documents({})
+    users_current = await db.users.count_documents({"created_at": {"$gte": current_iso}})
+    users_previous = await db.users.count_documents({"created_at": {"$gte": previous_iso, "$lt": previous_end_iso}})
+    
+    # --- Newsletter ---
+    newsletter_total = await db.newsletter.count_documents({"active": True})
+    
+    def calc_pct(current, previous):
+        if previous == 0:
+            return 100.0 if current > 0 else 0.0
+        return round(((current - previous) / previous) * 100, 1)
+    
     return {
-        "leads_total": leads_count,
-        "leads_recent": recent_leads,
-        "diagnostics_total": diagnostics_count,
-        "diagnostics_completed": recent_diagnostics,
-        "projects_total": projects_count,
+        "period": period,
+        "period_label": period_label,
+        "leads": {
+            "total": leads_total,
+            "current": leads_current,
+            "previous": leads_previous,
+            "change_pct": calc_pct(leads_current, leads_previous)
+        },
+        "diagnostics": {
+            "total": diagnostics_total,
+            "current": diag_current,
+            "previous": diag_previous,
+            "change_pct": calc_pct(diag_current, diag_previous)
+        },
+        "users": {
+            "total": users_total,
+            "current": users_current,
+            "previous": users_previous,
+            "change_pct": calc_pct(users_current, users_previous)
+        },
+        "projects_total": projects_total,
+        "newsletter_total": newsletter_total,
         "system_status": "operational"
     }
+
+
+# === Event Tracking (Public) ===
+
+@api_router.post("/events")
+async def track_event(event: EventLogCreate):
+    """Track a frontend event (public, no auth required)"""
+    evt = EventLog(
+        type=event.type,
+        page=event.page,
+        session_id=event.session_id,
+        user_id=event.user_id,
+        metadata=event.metadata
+    )
+    doc = evt.model_dump()
+    doc['timestamp'] = doc['timestamp'].isoformat()
+    await db.event_logs.insert_one(doc)
+    return {"ok": True}
+
+
+# === Admin Analytics ===
+
+@api_router.get("/admin/analytics")
+async def get_admin_analytics(admin: dict = Depends(require_admin)):
+    """Aggregated analytics from event_logs"""
+    now = datetime.now(timezone.utc)
+    thirty_days_ago = (now - timedelta(days=30)).isoformat()
+    seven_days_ago = (now - timedelta(days=7)).isoformat()
+    
+    total_events = await db.event_logs.count_documents({})
+    page_views = await db.event_logs.count_documents({"type": "page_view"})
+    form_submits = await db.event_logs.count_documents({"type": "form_submit"})
+    diag_starts = await db.event_logs.count_documents({"type": "diagnosis_start"})
+    diag_completes = await db.event_logs.count_documents({"type": "diagnosis_complete"})
+    cta_clicks = await db.event_logs.count_documents({"type": "cta_click"})
+    
+    # Unique sessions
+    pipeline_sessions = [
+        {"$group": {"_id": "$session_id"}},
+        {"$count": "total"}
+    ]
+    unique_sessions_result = await db.event_logs.aggregate(pipeline_sessions).to_list(1)
+    unique_sessions = unique_sessions_result[0]["total"] if unique_sessions_result else 0
+    
+    # Top pages
+    pipeline_pages = [
+        {"$match": {"type": "page_view"}},
+        {"$group": {"_id": "$page", "count": {"$sum": 1}}},
+        {"$sort": {"count": -1}},
+        {"$limit": 10}
+    ]
+    top_pages = await db.event_logs.aggregate(pipeline_pages).to_list(10)
+    
+    # Daily views (last 30 days)
+    pipeline_daily = [
+        {"$match": {"type": "page_view", "timestamp": {"$gte": thirty_days_ago}}},
+        {"$addFields": {"day": {"$substr": ["$timestamp", 0, 10]}}},
+        {"$group": {"_id": "$day", "count": {"$sum": 1}}},
+        {"$sort": {"_id": 1}}
+    ]
+    daily_views = await db.event_logs.aggregate(pipeline_daily).to_list(30)
+    
+    conversion_rate = round((form_submits / page_views * 100), 2) if page_views > 0 else 0
+    
+    return {
+        "total_events": total_events,
+        "page_views": page_views,
+        "unique_sessions": unique_sessions,
+        "form_submits": form_submits,
+        "diagnosis_starts": diag_starts,
+        "diagnosis_completes": diag_completes,
+        "cta_clicks": cta_clicks,
+        "conversion_rate": conversion_rate,
+        "top_pages": [{"page": p["_id"], "count": p["count"]} for p in top_pages],
+        "daily_views": [{"date": d["_id"], "count": d["count"]} for d in daily_views]
+    }
+
+@api_router.get("/admin/events")
+async def get_admin_events(limit: int = 50, admin: dict = Depends(require_admin)):
+    """Get recent events"""
+    events = await db.event_logs.find({}, {"_id": 0}).sort("timestamp", -1).to_list(limit)
+    return events
+
+
+# === Admin Alerts ===
+
+@api_router.get("/admin/alerts")
+async def get_admin_alerts(admin: dict = Depends(require_admin)):
+    """Get active alerts"""
+    alerts = await db.alerts.find({"resolved": False}, {"_id": 0}).sort("created_at", -1).to_list(50)
+    for a in alerts:
+        if isinstance(a.get('created_at'), str):
+            a['created_at'] = datetime.fromisoformat(a['created_at'])
+    return alerts
+
+@api_router.post("/admin/alerts/resolve")
+async def resolve_alert(payload: dict, admin: dict = Depends(require_admin)):
+    """Mark an alert as resolved"""
+    alert_id = payload.get("alert_id")
+    if not alert_id:
+        raise HTTPException(status_code=400, detail="alert_id is required")
+    result = await db.alerts.update_one({"id": alert_id}, {"$set": {"resolved": True}})
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Alert not found")
+    return {"message": "Alert resolved"}
+
+
+# === Lead Timeline ===
+
+@api_router.get("/admin/leads/{lead_id}/timeline")
+async def get_lead_timeline(lead_id: str, admin: dict = Depends(require_admin)):
+    """Get timeline events for a specific lead"""
+    # Find the lead to get their email
+    lead = await db.contacts.find_one({"id": lead_id}, {"_id": 0})
+    if not lead:
+        raise HTTPException(status_code=404, detail="Lead not found")
+    
+    email = lead.get("email", "")
+    
+    # Collect events from event_logs matching this email or lead_id
+    events = []
+    
+    if email:
+        event_logs = await db.event_logs.find(
+            {"$or": [{"metadata.email": email}, {"user_id": email}]}, {"_id": 0}
+        ).sort("timestamp", -1).to_list(50)
+        events.extend(event_logs)
+    
+    # Also check if the lead has a diagnostic
+    if email:
+        diags = await db.diagnostics.find({"email": email}, {"_id": 0}).to_list(10)
+        for d in diags:
+            events.append({
+                "type": "diagnosis_complete",
+                "page": "/diagnostico",
+                "timestamp": d.get("created_at"),
+                "metadata": {"score": d.get("score", 0), "diagnostic_id": d.get("id")}
+            })
+    
+    # Add the lead creation itself
+    events.append({
+        "type": "form_submit",
+        "page": "/contacto",
+        "timestamp": lead.get("created_at"),
+        "metadata": {"source": "contact_form"}
+    })
+    
+    # Sort by timestamp descending
+    events.sort(key=lambda x: str(x.get("timestamp", "")), reverse=True)
+    
+    return events
 
 
 # === Auth Routes ===
@@ -271,6 +515,13 @@ async def register(input: UserRegister):
     doc['created_at'] = doc['created_at'].isoformat()
     
     await db.users.insert_one(doc)
+    
+    # Email hooks (stub — Brevo not active yet)
+    try:
+        await email_svc.send_welcome_email(user.email, user.name)
+        await email_svc.notify_new_client(user.email, user.name)
+    except Exception:
+        pass  # Don't break registration if email logging fails
     
     token = create_access_token(user.id, user.email)
     return TokenResponse(
@@ -538,6 +789,13 @@ async def create_contact(input: ContactCreate):
     doc['created_at'] = doc['created_at'].isoformat()
     
     await db.contacts.insert_one(doc)
+    
+    # Email hook (stub)
+    try:
+        await email_svc.notify_new_lead(contact_obj.email, contact_obj.name, contact_obj.company)
+    except Exception:
+        pass
+    
     return contact_obj
 
 @api_router.get("/contacts", response_model=List[Contact])
@@ -584,6 +842,13 @@ async def create_diagnostic(input: DiagnosticCreate):
     doc['created_at'] = doc['created_at'].isoformat()
     
     await db.diagnostics.insert_one(doc)
+    
+    # Email hook (stub)
+    try:
+        await email_svc.notify_new_diagnosis(input.email or 'anon', score)
+    except Exception:
+        pass
+    
     return diagnostic_obj
 
 @api_router.get("/diagnostics", response_model=List[Diagnostic])
