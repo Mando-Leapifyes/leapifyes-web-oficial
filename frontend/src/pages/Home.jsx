@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
-import { 
+import {
   ArrowRight, ArrowUpRight, RefreshCw, Bot, Globe, Building2, Stethoscope,
   Briefcase, Store, User, Building, CheckCircle2, Zap, Target, Rocket,
   TrendingUp, Award, Users, Clock, MessageSquare, Heart, Shield, Code,
@@ -108,10 +108,10 @@ const VALUES = [
 ];
 
 const PLANS = [
-  { name: 'START', tagline: 'El primer paso', price: '497', features: ['Diagnóstico digital completo de tu negocio', 'CRM básico configurado y en funcionamiento', '1 automatización implementada', 'Seguimiento mensual dedicado', 'Acceso portal de clientes Leapifyes'], cta: 'Empezar', highlighted: false },
-  { name: 'ESSENTIAL', tagline: 'Las bases sólidas', price: '750', features: ['Todo lo incluido en Start', 'CRM avanzado + pipeline de ventas', '3 automatizaciones activas', 'Formación del equipo (hasta 5 personas)', 'Revisión estratégica bimestral'], cta: 'Explorar', highlighted: false },
-  { name: 'PRO', tagline: 'Crecer con procesos', price: '950', features: ['Todo lo incluido en Essential', 'Agente IA incluido (llamadas o WhatsApp)', 'Automatizaciones múltiples sin límite', 'Embudo comercial completo', 'Revisión estratégica mensual', 'Desarrollo web o landing incluido'], cta: 'Explorar', highlighted: true },
-  { name: 'PREMIUM 360', tagline: 'Transformación completa', price: '2.000', features: ['Estrategia de transformación integral', 'Todos los servicios activos simultáneamente', 'Gestión del cambio y adopción', 'Desarrollo de sistemas a medida', 'Soporte prioritario (respuesta < 4h)', 'Roadmap trimestral personalizado'], cta: 'Agendar diagnóstico', highlighted: false },
+  { name: 'START', slug: 'start', tagline: 'El primer paso', price: '497', features: ['Diagnóstico digital completo de tu negocio', 'CRM básico configurado y en funcionamiento', '1 automatización implementada', 'Seguimiento mensual dedicado', 'Acceso portal de clientes Leapifyes'], cta: 'Empezar', highlighted: false },
+  { name: 'ESSENTIAL', slug: 'essential', tagline: 'Las bases sólidas', price: '750', features: ['Todo lo incluido en Start', 'CRM avanzado + pipeline de ventas', '3 automatizaciones activas', 'Formación del equipo (hasta 5 personas)', 'Revisión estratégica bimestral'], cta: 'Explorar', highlighted: false },
+  { name: 'PRO', slug: 'pro', tagline: 'Crecer con procesos', price: '950', features: ['Todo lo incluido en Essential', 'Agente IA incluido (llamadas o WhatsApp)', 'Automatizaciones múltiples sin límite', 'Embudo comercial completo', 'Revisión estratégica mensual', 'Desarrollo web o landing incluido'], cta: 'Explorar', highlighted: true },
+  { name: 'PREMIUM 360', slug: 'premium-360', tagline: 'Transformación completa', price: '2.000', features: ['Estrategia de transformación integral', 'Todos los servicios activos simultáneamente', 'Gestión del cambio y adopción', 'Desarrollo de sistemas a medida', 'Soporte prioritario (respuesta < 4h)', 'Roadmap trimestral personalizado'], cta: 'Información detallada', highlighted: false },
 ];
 
 /* ═══════════════════════════════════ COMPONENT ═══════════════════════════════════ */
@@ -119,7 +119,7 @@ const PLANS = [
 const Home = () => {
   return (
     <Layout>
-      <SEO 
+      <SEO
         title="Leapifyes | Transformación Digital, IA y Sistemas a Medida en Barcelona"
         description="Consultora de transformación digital en Barcelona. CRM, automatización IA, desarrollo web y sistemas a medida para pymes y autónomos. Diagnóstico gratuito."
       />
@@ -131,7 +131,7 @@ const Home = () => {
           <div className="grid-pattern absolute inset-0 opacity-20" />
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")' }} />
         </div>
-        
+
         <div className="container-main relative z-10 pt-8 pb-12 md:pt-10 md:pb-16">
           <div className="grid lg:grid-cols-[55%_45%] gap-12 lg:gap-8 items-center">
             {/* Left — Text */}
@@ -447,7 +447,7 @@ const Home = () => {
               </div>
               <a href="https://www.linkedin.com/in/ricardoserrano" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-[#8892A4] hover:text-[#F0F4FF] transition-colors text-sm w-fit">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
                 LinkedIn
               </a>
             </div>
@@ -478,8 +478,12 @@ const Home = () => {
         <div className="container-main">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="text-center mb-4">
             <motion.span variants={fadeInUp} className="text-[#1B93A4] font-semibold mb-4 block uppercase tracking-wider text-sm" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Modelos de colaboración</motion.span>
-            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-black text-[#F0F4FF] mb-4">Siempre fee mensual o por hitos. <span className="gradient-text">Nunca por horas.</span></motion.h2>
-            <motion.p variants={fadeInUp} className="text-[#8892A4]">Sin permanencia.</motion.p>
+            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-black text-[#F0F4FF] mb-4">
+              Colaboraciones diseñadas para <span className="gradient-text">generar impacto real.</span>
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-[#8892A4] max-w-2xl mx-auto">
+              Cada proyecto se estructura según tus objetivos — con continuidad mensual o por hitos de entrega, siempre con estrategia, seguimiento y resultados medibles.
+            </motion.p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -504,9 +508,9 @@ const Home = () => {
                     </li>
                   ))}
                 </ul>
-                <a href={plan.name === 'PREMIUM 360' ? 'https://crm.zoho.eu/bookings/Calendariodelaweb' : '/contacto'} target={plan.name === 'PREMIUM 360' ? '_blank' : undefined} rel="noopener noreferrer">
+                <Link to={`/servicios/${plan.slug}`}>
                   <Button className={`w-full ${plan.highlighted ? 'btn-gradient' : 'btn-secondary'}`}>{plan.cta} <ArrowRight className="w-4 h-4 ml-2" /></Button>
-                </a>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -518,7 +522,7 @@ const Home = () => {
       <section className="section-padding relative overflow-hidden" data-testid="cta-section">
         <div className="absolute inset-0 bg-gradient-to-br from-[#1B93A4]/20 via-[#3B82F6]/10 to-[#D946EF]/20" style={{ animation: 'pulse 4s ease-in-out infinite' }} />
         <div className="mesh-gradient opacity-30" />
-        
+
         <div className="container-main relative z-10">
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-black text-[#F0F4FF] mb-4" style={{ fontFamily: 'Manrope, sans-serif' }}>
@@ -528,7 +532,7 @@ const Home = () => {
             <p className="text-lg text-[#8892A4] mb-10 max-w-2xl mx-auto">
               Agenda una llamada estratégica gratuita de 30 minutos. Sin compromisos. Solo claridad sobre dónde está tu negocio y qué necesita para crecer.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <a href="https://crm.zoho.eu/bookings/Calendariodelaweb" target="_blank" rel="noopener noreferrer" onClick={trackAgendarDemo}>
                 <Button className="btn-gradient text-lg px-10 py-7 font-semibold w-full sm:w-auto" data-testid="cta-final">

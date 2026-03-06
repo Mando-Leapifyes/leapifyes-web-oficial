@@ -38,31 +38,31 @@ const Footer = () => {
     <footer className="bg-[#060910] border-t border-[#1B93A4]/20" data-testid="main-footer">
       <div className="container-main py-16 md:py-20">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-8">
-          
+
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link to="/" className="inline-flex items-center gap-2.5 mb-6">
-              <div style={{ width:56, height:56, borderRadius:'50%', padding:3, background:'rgba(27,147,164,0.15)', border:'1.5px solid rgba(27,147,164,0.4)' }}>
-                <img src={ASSETS.logoLeapifyes} alt="Leapifyes" style={{ width:'100%', height:'100%', borderRadius:'50%', objectFit:'cover', mixBlendMode:'luminosity' }} loading="lazy" />
+              <div style={{ width: 56, height: 56, borderRadius: '50%', padding: 3, background: 'rgba(27,147,164,0.15)', border: '1.5px solid rgba(27,147,164,0.4)' }}>
+                <img src={ASSETS.logoLeapifyes} alt="Leapifyes" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', mixBlendMode: 'luminosity' }} loading="lazy" />
               </div>
               <span className="text-2xl font-black tracking-tight gradient-text">
                 LEAPIFYES
               </span>
             </Link>
             <p className="text-[#8892A4] text-sm mb-6 leading-relaxed">
-              Transformamos pymes y autónomos en negocios digitales 
+              Transformamos pymes y autónomos en negocios digitales
               con estrategia, herramientas y acompañamiento humano.
             </p>
             <div className="space-y-3 text-sm mb-6">
-              <a 
-                href="mailto:info@leapifyes.com" 
+              <a
+                href="mailto:info@leapifyes.com"
                 className="flex items-center gap-2 text-[#8892A4] hover:text-[#1B93A4] transition-colors"
               >
                 <Mail className="w-4 h-4" />
                 info@leapifyes.com
               </a>
-              <a 
-                href="tel:+34694214849" 
+              <a
+                href="tel:+34694214849"
                 className="flex items-center gap-2 text-[#8892A4] hover:text-[#1B93A4] transition-colors"
               >
                 <Phone className="w-4 h-4" />
@@ -73,7 +73,7 @@ const Footer = () => {
                 Barcelona, España
               </div>
             </div>
-            
+
             {/* Social Links */}
             <div className="flex items-center gap-3">
               <a
@@ -188,17 +188,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Credential Badge */}
-        <div className="mt-12 pt-8 border-t border-white/5">
-          <div className="glass-card px-6 py-4 text-center">
-            <div className="flex items-center justify-center gap-3">
-              <Award className="w-5 h-5 text-[#1B93A4]" />
-              <span className="text-sm text-[#8892A4]">
-                Certificados <span className="text-[#F0F4FF] font-medium">Agentes del Cambio</span> · Generación Digital · Nascor / Agenda 2030 · DigitalLeap Solutions S.L.U.
-              </span>
-            </div>
-          </div>
-        </div>
+
       </div>
 
       {/* Bottom Bar */}

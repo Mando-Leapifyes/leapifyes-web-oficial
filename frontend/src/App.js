@@ -1,11 +1,22 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import { HelmetProvider } from "react-helmet-async";
 import CookieBanner from "@/components/CookieBanner";
 import { LocaleProvider } from "@/context/LocaleContext";
 import { AuthProvider } from "@/context/AuthContext";
+
+
+
+// Componente ScrollToTop
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 // Marketing Pages - Loaded eagerly for SEO
 import Home from "./pages/Home";
@@ -21,6 +32,7 @@ import Contacto from "./pages/Contacto";
 import Barcelona from "./pages/Barcelona";
 import Cataluna from "./pages/Cataluna";
 import DiagnosticoPage from "./pages/DiagnosticoPage";
+import ServicioDetalle from "./pages/ServicioDetalle";
 
 // Legal Pages - Loaded eagerly for SEO
 import Privacidad from "./pages/legal/Privacidad";
@@ -66,6 +78,7 @@ function App() {
         <AuthProvider>
           <div className="App">
             <BrowserRouter>
+              <ScrollToTop />
               <Routes>
                 {/* Marketing Routes - SEO Critical */}
                 <Route path="/" element={<Home />} />
@@ -91,6 +104,7 @@ function App() {
 
                 {/* Herramientas interactivas */}
                 <Route path="/diagnostico" element={<DiagnosticoPage />} />
+                <Route path="/servicios/:slug" element={<ServicioDetalle />} />
 
                 {/* Legal Pages */}
                 <Route path="/legal/privacidad" element={<Privacidad />} />
