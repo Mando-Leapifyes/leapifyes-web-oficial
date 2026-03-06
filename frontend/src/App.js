@@ -38,6 +38,12 @@ const Calculadora = lazy(() => import("./pages/app/Calculadora"));
 const PortalLogin = lazy(() => import("./pages/portal/PortalLogin"));
 const PortalDashboard = lazy(() => import("./pages/portal/PortalDashboard"));
 
+// Admin Pages - Lazy loaded
+const AdminRoute = lazy(() => import("./components/layout/AdminRoute"));
+const AdminLayout = lazy(() => import("./components/layout/AdminLayout"));
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
+const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
+
 // Loading fallback for lazy components
 const AppLoading = () => (
   <div className="min-h-screen bg-[#080B14] flex items-center justify-center">
@@ -56,80 +62,96 @@ function App() {
           <div className="App">
             <BrowserRouter>
               <Routes>
-            {/* Marketing Routes - SEO Critical */}
-            <Route path="/" element={<Home />} />
-            
-            {/* Soluciones */}
-            <Route path="/soluciones" element={<SolucionesHub />} />
-            <Route path="/soluciones/:serviceId" element={<ServiceDetail />} />
-            
-            {/* Sectores */}
-            <Route path="/sectores" element={<SectoresHub />} />
-            <Route path="/sectores/:sectorId" element={<SectorDetail />} />
-            
-            {/* Local SEO Pages */}
-            <Route path="/barcelona" element={<Barcelona />} />
-            <Route path="/cataluna" element={<Cataluna />} />
-            
-            {/* Other Marketing Pages */}
-            <Route path="/casos" element={<Casos />} />
-            <Route path="/metodo" element={<Metodo />} />
-            <Route path="/empresa" element={<Empresa />} />
-            <Route path="/recursos" element={<Recursos />} />
-            <Route path="/contacto" element={<Contacto />} />
+                {/* Marketing Routes - SEO Critical */}
+                <Route path="/" element={<Home />} />
 
-            {/* Herramientas interactivas */}
-            <Route path="/diagnostico" element={<DiagnosticoPage />} />
-            
-            {/* Legal Pages */}
-            <Route path="/legal/privacidad" element={<Privacidad />} />
-            <Route path="/legal/cookies" element={<Cookies />} />
-            <Route path="/legal/aviso-legal" element={<AvisoLegal />} />
-            
-            {/* App Routes - Lazy Loaded */}
-            <Route path="/app" element={
-              <Suspense fallback={<AppLoading />}>
-                <AppDashboard />
-              </Suspense>
-            } />
-            <Route path="/app/diagnostico" element={
-              <Suspense fallback={<AppLoading />}>
-                <Diagnostico />
-              </Suspense>
-            } />
-            <Route path="/app/resultados" element={
-              <Suspense fallback={<AppLoading />}>
-                <Resultados />
-              </Suspense>
-            } />
-            <Route path="/app/calculadora" element={
-              <Suspense fallback={<AppLoading />}>
-                <Calculadora />
-              </Suspense>
-            } />
-            <Route path="/app/demo-agentes-ia" element={
-              <Suspense fallback={<AppLoading />}>
-                <DemoAgentesIA />
-              </Suspense>
-            } />
-            
-            {/* Portal Routes */}
-            <Route path="/portal/login" element={
-              <Suspense fallback={<AppLoading />}>
-                <PortalLogin />
-              </Suspense>
-            } />
-            <Route path="/portal" element={
-              <Suspense fallback={<AppLoading />}>
-                <PortalDashboard />
-              </Suspense>
-            } />
-          </Routes>
-        </BrowserRouter>
-        <CookieBanner />
-        <Toaster position="top-right" richColors />
-      </div>
-      </AuthProvider>
+                {/* Soluciones */}
+                <Route path="/soluciones" element={<SolucionesHub />} />
+                <Route path="/soluciones/:serviceId" element={<ServiceDetail />} />
+
+                {/* Sectores */}
+                <Route path="/sectores" element={<SectoresHub />} />
+                <Route path="/sectores/:sectorId" element={<SectorDetail />} />
+
+                {/* Local SEO Pages */}
+                <Route path="/barcelona" element={<Barcelona />} />
+                <Route path="/cataluna" element={<Cataluna />} />
+
+                {/* Other Marketing Pages */}
+                <Route path="/casos" element={<Casos />} />
+                <Route path="/metodo" element={<Metodo />} />
+                <Route path="/empresa" element={<Empresa />} />
+                <Route path="/recursos" element={<Recursos />} />
+                <Route path="/contacto" element={<Contacto />} />
+
+                {/* Herramientas interactivas */}
+                <Route path="/diagnostico" element={<DiagnosticoPage />} />
+
+                {/* Legal Pages */}
+                <Route path="/legal/privacidad" element={<Privacidad />} />
+                <Route path="/legal/cookies" element={<Cookies />} />
+                <Route path="/legal/aviso-legal" element={<AvisoLegal />} />
+
+                {/* App Routes - Lazy Loaded */}
+                <Route path="/app" element={
+                  <Suspense fallback={<AppLoading />}>
+                    <AppDashboard />
+                  </Suspense>
+                } />
+                <Route path="/app/diagnostico" element={
+                  <Suspense fallback={<AppLoading />}>
+                    <Diagnostico />
+                  </Suspense>
+                } />
+                <Route path="/app/resultados" element={
+                  <Suspense fallback={<AppLoading />}>
+                    <Resultados />
+                  </Suspense>
+                } />
+                <Route path="/app/calculadora" element={
+                  <Suspense fallback={<AppLoading />}>
+                    <Calculadora />
+                  </Suspense>
+                } />
+                <Route path="/app/demo-agentes-ia" element={
+                  <Suspense fallback={<AppLoading />}>
+                    <DemoAgentesIA />
+                  </Suspense>
+                } />
+
+                {/* Portal Routes */}
+                <Route path="/portal/login" element={
+                  <Suspense fallback={<AppLoading />}>
+                    <PortalLogin />
+                  </Suspense>
+                } />
+                <Route path="/portal" element={
+                  <Suspense fallback={<AppLoading />}>
+                    <PortalDashboard />
+                  </Suspense>
+                } />
+
+                {/* Super Admin Routes */}
+                <Route path="/admin" element={
+                  <Suspense fallback={<AppLoading />}>
+                    <AdminRoute>
+                      <AdminLayout />
+                    </AdminRoute>
+                  </Suspense>
+                }>
+                  <Route index element={<AdminDashboard />} />
+                  <Route path="leads" element={<AdminLeads />} />
+                  <Route path="diagnostics" element={<div className="p-8 text-white">Módulo Diagnósticos (En construcción)</div>} />
+                  <Route path="ai-logs" element={<div className="p-8 text-white">Módulo IA (En construcción)</div>} />
+                  <Route path="projects" element={<div className="p-8 text-white">Módulo Proyectos (En construcción)</div>} />
+                  <Route path="system" element={<div className="p-8 text-white">Módulo Sistema (En construcción)</div>} />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+            <CookieBanner />
+            <Toaster position="top-right" richColors />
+          </div>
+        </AuthProvider>
       </LocaleProvider>
     </HelmetProvider>
   );

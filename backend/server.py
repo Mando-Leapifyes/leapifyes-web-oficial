@@ -63,7 +63,7 @@ class User(BaseModel):
     name: str
     company: Optional[str] = None
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-    role: str = "client"  # client, admin
+    role: str = "client"  # client, admin, super_admin
 
 class UserResponse(BaseModel):
     id: str
@@ -218,6 +218,34 @@ async def require_auth(credentials: HTTPAuthorizationCredentials = Depends(secur
         raise HTTPException(status_code=401, detail="Usuario no encontrado")
     return user
 
+async def require_admin(user: dict = Depends(require_auth)) -> dict:
+    if user.get("role") not in ["admin", "super_admin"]:
+        raise HTTPException(status_code=403, detail="Acceso denegado. Se requieren permisos de administrador.")
+    return user
+
+
+# === Admin Routes ===
+
+@api_router.get("/admin/dashboard/kpis")
+async def get_admin_dashboard_kpis(admin: dict = Depends(require_admin)):
+    """Get high-level KPIs for super_admin/admin dashboard"""
+    leads_count = await db.contacts.count_documents({})
+    diagnostics_count = await db.diagnostics.count_documents({})
+    projects_count = await db.projects.count_documents({})
+    
+    # Simple recent counts (last 30 days logic placeholder)
+    recent_leads = await db.contacts.count_documents({"status": "new"})
+    recent_diagnostics = await db.diagnostics.count_documents({"score": {"$gt": 0}})
+
+    return {
+        "leads_total": leads_count,
+        "leads_recent": recent_leads,
+        "diagnostics_total": diagnostics_count,
+        "diagnostics_completed": recent_diagnostics,
+        "projects_total": projects_count,
+        "system_status": "operational"
+    }
+
 
 # === Auth Routes ===
 
@@ -233,6 +261,10 @@ async def register(input: UserRegister):
         name=input.name,
         company=input.company
     )
+    
+    # Auto-asignación de súper administrador para el CEO
+    if input.email.lower() == "ricardoserrano@leapifyes.com":
+        user.role = "super_admin"
     
     doc = user.model_dump()
     doc['password_hash'] = hash_password(input.password)
@@ -252,6 +284,11 @@ async def login(input: UserLogin):
     user = await db.users.find_one({"email": input.email}, {"_id": 0})
     if not user or not verify_password(input.password, user.get('password_hash', '')):
         raise HTTPException(status_code=401, detail="Email o contraseña incorrectos")
+        
+    # Auto-upgrade seguro de súper administrador para Ricardo en Login
+    if input.email.lower() == "ricardoserrano@leapifyes.com" and user.get("role") != "super_admin":
+        await db.users.update_one({"email": input.email}, {"$set": {"role": "super_admin"}})
+        user["role"] = "super_admin"
     
     token = create_access_token(user['id'], user['email'])
     return TokenResponse(
