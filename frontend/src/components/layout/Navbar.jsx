@@ -1,47 +1,61 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowUpRight, Globe } from 'lucide-react';
 import { Button } from '../ui/button';
-import LanguageSwitcher from '../LanguageSwitcher';
+import { useLocale } from '../../context/LocaleContext';
 import { ASSETS } from '../../lib/assets';
-
-const NAV_LINKS = [
-  { href: '/soluciones', label: 'Servicios' },
-  { href: '/sectores', label: 'Sectores' },
-  { href: '/casos', label: 'Casos' },
-  { href: '/metodo', label: 'Método' },
-  { href: '/empresa', label: 'Empresa' },
-  { href: '/recursos', label: 'Blog' },
-  { href: '/diagnostico', label: 'Diagnóstico', highlight: true },
-];
-
-const PRODUCTS = [
-  {
-    name: 'MANDO by Leapifyes',
-    description: 'ERP para reformas y construcción',
-    url: 'https://mando.leapifyes.com',
-    logo: ASSETS.logoMando,
-    logoClass: 'rounded-full',
-    status: 'LIVE',
-    statusColor: 'bg-[#1B93A4]',
-  },
-  {
-    name: 'TRÉBOL Finance',
-    description: 'Fintech personal con IA',
-    url: 'https://trebolfinance.leapifyes.com/login',
-    logo: ASSETS.logoTrebol,
-    logoClass: 'rounded-md',
-    status: 'BETA',
-    statusColor: 'bg-[#10b981]',
-  },
-];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const location = useLocation();
+  const langRef = useRef(null);
+  const { locale, setLocale, t } = useLocale();
+
+  const NAV_LINKS = [
+    { href: '/soluciones', label: t('nav', 'servicios') },
+    { href: '/sectores', label: t('nav', 'sectores') },
+    { href: '/casos', label: t('nav', 'casos') },
+    { href: '/metodo', label: t('nav', 'metodo') },
+    { href: '/empresa', label: t('nav', 'empresa') },
+    { href: '/recursos', label: t('nav', 'blog') },
+    { href: '/diagnostico', label: t('nav', 'diagnostico'), highlight: true },
+  ];
+
+  const PRODUCTS = [
+    {
+      name: 'MANDO by Leapifyes',
+      description: 'ERP para reformas y construcción',
+      url: 'https://mando.leapifyes.com',
+      logo: ASSETS.logoMando,
+      logoClass: 'rounded-full',
+      status: 'LIVE',
+      statusColor: 'bg-[#1B93A4]',
+    },
+    {
+      name: 'TRÉBOL Finance',
+      description: 'Fintech personal con IA',
+      url: 'https://trebolfinance.leapifyes.com/login',
+      logo: ASSETS.logoTrebol,
+      logoClass: 'rounded-md',
+      status: 'BETA',
+      statusColor: 'bg-[#10b981]',
+    },
+  ];
+
+  const LANGUAGES = [
+    { code: 'es', label: 'Español', flag: '🇪🇸' },
+    { code: 'ca', label: 'Català', flag: '🏴' },
+    { code: 'en', label: 'English', flag: '🇬🇧' },
+    { code: 'fr', label: 'Français', flag: '🇫🇷' },
+    { code: 'pt', label: 'Português', flag: '🇵🇹' },
+    { code: 'it', label: 'Italiano', flag: '🇮🇹' },
+    { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
+    { code: 'nl', label: 'Nederlands', flag: '🇳🇱' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -54,6 +68,16 @@ const Navbar = () => {
     setIsProductsOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return (
     <>
       <header
@@ -63,7 +87,7 @@ const Navbar = () => {
       >
         <div className="container-main">
           <div className="flex items-center justify-between">
-            {/* Logo - COMPLETO con gradiente */}
+            {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
               <div style={{ width: 38, height: 38, borderRadius: '50%', padding: 2, background: 'rgba(27,147,164,0.15)', border: '1.5px solid rgba(27,147,164,0.5)', flexShrink: 0 }}>
                 <img src={ASSETS.logoLeapifyes} alt="Leapifyes" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', mixBlendMode: 'luminosity' }} />
@@ -81,9 +105,8 @@ const Navbar = () => {
                   onClick={() => setIsProductsOpen(!isProductsOpen)}
                   onMouseEnter={() => setIsProductsOpen(true)}
                   className="flex items-center gap-1 px-4 py-2 text-[#8892A4] hover:text-[#F0F4FF] transition-colors font-medium text-sm"
-                  data-testid="nav-products-dropdown"
                 >
-                  Productos
+                  {t('nav', 'productos')}
                   <ChevronDown className={`w-4 h-4 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
                 </button>
 
@@ -103,7 +126,6 @@ const Navbar = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group"
-                          data-testid={`nav-product-${product.name.toLowerCase().replace(/\s/g, '-')}`}
                         >
                           <img src={product.logo} alt={product.name} className={`w-10 h-10 object-cover flex-shrink-0 ${product.logoClass}`} />
                           <div className="flex-1 min-w-0">
@@ -141,8 +163,8 @@ const Navbar = () => {
                     key={link.href}
                     to={link.href}
                     className={`px-4 py-2 font-medium text-sm transition-colors ${location.pathname === link.href || location.pathname.startsWith(link.href + '/')
-                        ? 'text-[#1B93A4]'
-                        : 'text-[#8892A4] hover:text-[#F0F4FF]'
+                      ? 'text-[#1B93A4]'
+                      : 'text-[#8892A4] hover:text-[#F0F4FF]'
                       }`}
                   >
                     {link.label}
@@ -153,15 +175,51 @@ const Navbar = () => {
 
             {/* Right Section */}
             <div className="hidden lg:flex items-center gap-4">
-              <LanguageSwitcher />
-              <Link to="/portal/login" className="text-[#8892A4] hover:text-[#F0F4FF] text-sm font-medium transition-colors">Portal</Link>
+              {/* Language Selector */}
+              <div className="relative" ref={langRef}>
+                <button
+                  onClick={() => setLangOpen(!langOpen)}
+                  className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg text-[#8892A4] hover:text-[#F0F4FF] hover:bg-white/5 transition-all"
+                >
+                  <Globe className="w-4 h-4" />
+                  <span className="text-xs font-bold uppercase">{locale}</span>
+                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {langOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute right-0 top-full mt-2 w-44 bg-[#0F1628] border border-white/10 rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-[200]"
+                    >
+                      {LANGUAGES.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => { setLocale(lang.code); setLangOpen(false); }}
+                          className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors hover:bg-white/5
+                            ${locale === lang.code ? 'text-[#1B93A4] font-bold bg-[#1B93A4]/10' : 'text-[#8892A4] hover:text-[#F0F4FF]'}`}
+                        >
+                          <span className="text-base leading-none">{lang.flag}</span>
+                          <span>{lang.label}</span>
+                          {locale === lang.code && <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#1B93A4]" />}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <Link to="/portal/login" className="text-[#8892A4] hover:text-[#F0F4FF] text-sm font-medium transition-colors">
+                {t('nav', 'portal')}
+              </Link>
               <a
                 href="https://crm.zoho.eu/bookings/Calendariodelaweb"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button className="bg-[#1B93A4] hover:bg-[#1B93A4]/90 text-white text-sm px-5 py-2.5 rounded-full font-semibold" data-testid="nav-cta">
-                  Agendar diagnóstico
+                <Button className="bg-[#1B93A4] hover:bg-[#1B93A4]/90 text-white text-sm px-5 py-2.5 rounded-full font-semibold">
+                  {t('nav', 'agendar')}
                 </Button>
               </a>
             </div>
@@ -170,7 +228,6 @@ const Navbar = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 text-[#F0F4FF]"
-              data-testid="mobile-menu-btn"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -192,7 +249,7 @@ const Navbar = () => {
             <div className="relative h-full flex flex-col pt-24 px-6 pb-8 overflow-y-auto">
               {/* Products */}
               <div className="mb-6">
-                <p className="text-xs text-[#8892A4] uppercase tracking-wider mb-3 font-semibold">Productos</p>
+                <p className="text-xs text-[#8892A4] uppercase tracking-wider mb-3 font-semibold">{t('nav', 'productos')}</p>
                 {PRODUCTS.map((product) => (
                   <a
                     key={product.name}
@@ -211,7 +268,7 @@ const Navbar = () => {
               </div>
 
               {/* Navigation Links */}
-              <div className="mb-8">
+              <div className="mb-0">
                 <p className="text-xs text-[#8892A4] uppercase tracking-wider mb-3 font-semibold">Navegación</p>
                 {NAV_LINKS.map((link) => (
                   link.highlight ? (
@@ -233,22 +290,28 @@ const Navbar = () => {
                     </Link>
                   )
                 ))}
-                <Link
-                  to="/contacto"
-                  className="block py-3 text-lg text-[#F0F4FF] font-medium border-b border-white/5"
-                >
-                  Contacto
-                </Link>
               </div>
 
-              {/* Language Switcher */}
-              <div className="mb-8">
-                <p className="text-xs text-[#8892A4] uppercase tracking-wider mb-3 font-semibold">Idioma</p>
-                <LanguageSwitcher className="justify-start" />
+              {/* Language Selector Mobile */}
+              <div className="mt-8">
+                <p className="text-xs text-[#8892A4] uppercase tracking-wider mb-4 font-semibold">Idioma</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {LANGUAGES.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => { setLocale(lang.code); setIsMobileMenuOpen(false); }}
+                      className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm border transition-colors
+                        ${locale === lang.code ? 'bg-[#1B93A4]/10 border-[#1B93A4] text-[#F0F4FF]' : 'bg-white/5 border-white/5 text-[#8892A4]'}`}
+                    >
+                      <span>{lang.flag}</span>
+                      <span>{lang.label}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
 
               {/* CTA */}
-              <div className="mt-auto">
+              <div className="mt-auto pt-8">
                 <a
                   href="https://crm.zoho.eu/bookings/Calendariodelaweb"
                   target="_blank"
@@ -256,7 +319,7 @@ const Navbar = () => {
                   className="block"
                 >
                   <Button className="btn-gradient w-full justify-center">
-                    Agendar diagnóstico
+                    {t('nav', 'agendar')}
                   </Button>
                 </a>
               </div>

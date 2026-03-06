@@ -13,6 +13,7 @@ import Layout from '../components/layout/Layout';
 import SEO from '../components/SEO';
 import { ASSETS } from '../lib/assets';
 import { trackAgendarDemo } from '../lib/analytics';
+import { useLocale } from '../context/LocaleContext';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -117,6 +118,7 @@ const PLANS = [
 /* ═══════════════════════════════════ COMPONENT ═══════════════════════════════════ */
 
 const Home = () => {
+  const { t } = useLocale();
   return (
     <Layout>
       <SEO
@@ -139,34 +141,34 @@ const Home = () => {
               <motion.div variants={fadeInUp} className="mb-6">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold glass-card text-[#1B93A4] border border-[#1B93A4]/20">
                   <span className="w-2 h-2 bg-[#1B93A4] rounded-full animate-pulse" />
-                  CON LEAPIFYES NO DAS UN PASO, DAS UN SALTO
+                  {t('home', 'hero_tag')}
                 </span>
               </motion.div>
 
               <motion.h1 variants={fadeInUp} className="font-black text-[#F0F4FF] mb-5 leading-[1.05] tracking-tight" style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(2.5rem, 7vw, 5rem)' }}>
-                Transformamos negocios.<br />
-                <span className="gradient-text">Construimos el futuro.</span>
+                {t('home', 'hero_title_1')} {t('home', 'hero_title_2')}<br />
+                <span className="gradient-text">{t('home', 'hero_title_3')} {t('home', 'hero_title_4')}</span>
               </motion.h1>
 
               <motion.p variants={fadeInUp} className="text-lg md:text-xl text-[#8892A4] mb-6 max-w-xl">
-                Digitalizamos pymes y autónomos en España — con estrategia, IA y sistemas a medida.
+                {t('home', 'hero_sub')}
               </motion.p>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-3 mb-8">
-                <span className="px-4 py-2 rounded-full bg-[#1B93A4]/10 border border-[#1B93A4]/20 text-sm text-[#8892A4] flex items-center gap-2"><MapPin className="w-4 h-4 text-[#1B93A4]" />Barcelona, España</span>
-                <span className="px-4 py-2 rounded-full bg-[#D946EF]/10 border border-[#D946EF]/20 text-sm text-[#8892A4] flex items-center gap-2"><Bot className="w-4 h-4 text-[#D946EF]" />Agentes IA</span>
-                <span className="px-4 py-2 rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-sm text-[#8892A4] flex items-center gap-2"><Zap className="w-4 h-4 text-[#3B82F6]" />Sistemas a medida</span>
+                <span className="px-4 py-2 rounded-full bg-[#1B93A4]/10 border border-[#1B93A4]/20 text-sm text-[#8892A4] flex items-center gap-2"><MapPin className="w-4 h-4 text-[#1B93A4]" />{t('home', 'tag_barcelona')}</span>
+                <span className="px-4 py-2 rounded-full bg-[#D946EF]/10 border border-[#D946EF]/20 text-sm text-[#8892A4] flex items-center gap-2"><Bot className="w-4 h-4 text-[#D946EF]" />{t('home', 'tag_ia')}</span>
+                <span className="px-4 py-2 rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-sm text-[#8892A4] flex items-center gap-2"><Zap className="w-4 h-4 text-[#3B82F6]" />{t('home', 'tag_sistemas')}</span>
               </motion.div>
 
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-12">
                 <a href="https://crm.zoho.eu/bookings/Calendariodelaweb" target="_blank" rel="noopener noreferrer" onClick={trackAgendarDemo}>
                   <Button className="btn-gradient text-base px-8 py-6 font-semibold w-full sm:w-auto" data-testid="hero-cta-primary">
-                    Agendar diagnóstico gratuito <ArrowRight className="w-5 h-5 ml-2" />
+                    {t('home', 'cta_agendar')} <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </a>
                 <Link to="/soluciones">
                   <Button className="btn-secondary text-base px-8 py-6 font-semibold w-full sm:w-auto" data-testid="hero-cta-secondary">
-                    Ver nuestros servicios
+                    {t('home', 'cta_servicios')}
                   </Button>
                 </Link>
               </motion.div>
@@ -187,9 +189,9 @@ const Home = () => {
             {/* Right — Dashboard Preview */}
             <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:flex flex-col gap-4">
               {[
-                { icon: RefreshCw, title: 'Transformación Digital', desc: 'Procesos, CRM, automatización inteligente.', color: '#1B93A4', delay: 0 },
-                { icon: Bot, title: 'Agentes IA 24/7', desc: 'Atiende, cualifica y vende sin intervención.', color: '#D946EF', delay: 0.2 },
-                { icon: Code, title: 'Sistemas a Medida', desc: 'Web, ERP, apps propias y SaaS escalable.', color: '#3B82F6', delay: 0.4 },
+                { icon: RefreshCw, title: t('home', 'sol_td'), desc: t('home', 'sol_td_sub'), color: '#1B93A4', delay: 0 },
+                { icon: Bot, title: t('home', 'sol_ia'), desc: t('home', 'sol_ia_sub'), color: '#D946EF', delay: 0.2 },
+                { icon: Code, title: t('home', 'sol_sis'), desc: t('home', 'sol_sis_sub'), color: '#3B82F6', delay: 0.4 },
               ].map((card, i) => (
                 <motion.div key={i} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 + card.delay, duration: 0.5 }} className="p-5 rounded-xl bg-[#161D30] border-l-[3px]" style={{ borderColor: card.color }}>
                   <div className="flex items-start gap-4">
@@ -259,7 +261,7 @@ const Home = () => {
       {/* ══════════ SECCIÓN 4: HERRAMIENTAS INTERACTIVAS ══════════ */}
       <section className="section-padding relative" data-testid="tools-section">
         <div className="container-main">
-          <SectionHeader label="Descubre dónde está tu negocio" title="Herramientas gratuitas." gradient="Sin registro. Resultados inmediatos." />
+          <SectionHeader label={t('home', 'imd_tag')} title={t('home', 'imd_title')} gradient={t('home', 'imd_sub')} />
           <div className="grid md:grid-cols-3 gap-6">
             {TOOLS.map((tool, index) => (
               <motion.div key={tool.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.12 }} className="glass-card p-8 group hover:border-white/20 transition-all flex flex-col">
@@ -477,12 +479,12 @@ const Home = () => {
       <section className="section-padding relative border-t border-white/5" data-testid="plans-section">
         <div className="container-main">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="text-center mb-4">
-            <motion.span variants={fadeInUp} className="text-[#1B93A4] font-semibold mb-4 block uppercase tracking-wider text-sm" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Modelos de colaboración</motion.span>
+            <motion.span variants={fadeInUp} className="text-[#1B93A4] font-semibold mb-4 block uppercase tracking-wider text-sm" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{t('home', 'planes_tag')}</motion.span>
             <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-black text-[#F0F4FF] mb-4">
-              Colaboraciones diseñadas para <span className="gradient-text">generar impacto real.</span>
+              {t('home', 'planes_hook')}
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-[#8892A4] max-w-2xl mx-auto">
-              Cada proyecto se estructura según tus objetivos — con continuidad mensual o por hitos de entrega, siempre con estrategia, seguimiento y resultados medibles.
+              {t('home', 'planes_sub')}
             </motion.p>
           </motion.div>
 
@@ -491,7 +493,7 @@ const Home = () => {
               <motion.div key={plan.name} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className={`glass-card p-6 relative flex flex-col ${plan.highlighted ? 'border-[#1B93A4] ring-1 ring-[#1B93A4]' : ''}`}>
                 {plan.highlighted && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#1B93A4] text-white text-xs font-bold rounded-full flex items-center gap-1">
-                    <Star className="w-3 h-3" /> Más popular
+                    <Star className="w-3 h-3" /> {t('home', 'plan_popular')}
                   </div>
                 )}
                 <h3 className="text-xl font-black text-[#F0F4FF] mb-1">{plan.name}</h3>
@@ -509,7 +511,7 @@ const Home = () => {
                   ))}
                 </ul>
                 <Link to={`/servicios/${plan.slug}`}>
-                  <Button className={`w-full ${plan.highlighted ? 'btn-gradient' : 'btn-secondary'}`}>{plan.cta} <ArrowRight className="w-4 h-4 ml-2" /></Button>
+                  <Button className={`w-full ${plan.highlighted ? 'btn-gradient' : 'btn-secondary'}`}>{t('home', 'plan_cta')} <ArrowRight className="w-4 h-4 ml-2" /></Button>
                 </Link>
               </motion.div>
             ))}
