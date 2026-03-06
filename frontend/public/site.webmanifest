@@ -1,0 +1,13 @@
+{
+  "name": "Leapifyes | Transformación Digital Barcelona",
+  "short_name": "Leapifyes",
+  "description": "Consultora digital, IA y sistemas a medida para pymes en España.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080B14",
+  "theme_color": "#1B93A4",
+  "icons": [
+    {"src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}

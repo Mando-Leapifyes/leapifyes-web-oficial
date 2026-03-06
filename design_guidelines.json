@@ -1,0 +1,164 @@
+{
+  "identity": {
+    "name": "Leapifyes OS",
+    "persona": "Elite Corporate Futurist (2026/2027)",
+    "mission": "Unify corporate authority with AI innovation in a seamless, premium experience.",
+    "tone": "Professional, Human-First, Authoritative, Clear, Innovative.",
+    "target_audience": "CEOs, COOs, and Business Leaders of SMEs in Barcelona/Catalonia.",
+    "values": [
+      "Fusion over Imitation",
+      "Emotion First",
+      "Content is King",
+      "Zoom In (Detail Oriented)",
+      "Negative Space",
+      "Contrast"
+    ]
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Manrope, sans-serif",
+      "body": "Plus Jakarta Sans, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "weights": {
+      "light": 300,
+      "regular": 400,
+      "medium": 500,
+      "bold": 700,
+      "black": 900
+    },
+    "sizes": {
+      "display": "text-6xl md:text-8xl tracking-tighter leading-none",
+      "h1": "text-5xl md:text-6xl tracking-tight leading-tight",
+      "h2": "text-4xl md:text-5xl tracking-tight leading-tight",
+      "h3": "text-2xl md:text-3xl tracking-normal leading-snug",
+      "body_lg": "text-lg md:text-xl leading-relaxed",
+      "body": "text-base leading-relaxed",
+      "caption": "text-sm tracking-wide uppercase text-muted-foreground"
+    }
+  },
+  "colors": {
+    "theme": "light",
+    "palette": {
+      "background": {
+        "default": "#ffffff",
+        "subtle": "#f8fafc",
+        "muted": "#f1f5f9"
+      },
+      "foreground": {
+        "default": "#0f172a",
+        "muted": "#64748b",
+        "inverse": "#ffffff"
+      },
+      "primary": {
+        "default": "#0f172a",
+        "foreground": "#ffffff"
+      },
+      "accent": {
+        "turquoise": "#1B93A4",
+        "magenta": "#D946EF",
+        "blue": "#3B82F6",
+        "gradient": "linear-gradient(135deg, #1B93A4 0%, #3B82F6 50%, #D946EF 100%)"
+      },
+      "border": {
+        "default": "#e2e8f0",
+        "subtle": "#f1f5f9"
+      }
+    },
+    "usage_rules": {
+      "gradients": "Use ONLY for accents (buttons, active states, borders). NEVER for full backgrounds.",
+      "text": "High contrast is mandatory. Headings in Slate-900, Body in Slate-600.",
+      "glassmorphism": "bg-white/70 backdrop-blur-xl border-white/20 shadow-sm"
+    }
+  },
+  "layout": {
+    "spacing": {
+      "container_padding": "px-6 md:px-12 lg:px-24",
+      "section_gap": "py-24 md:py-32",
+      "element_gap": "gap-6 md:gap-12"
+    },
+    "grids": {
+      "bento": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+      "dashboard": "grid grid-cols-12 gap-4",
+      "marketing": "grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16"
+    },
+    "container": {
+      "max_width": "max-w-7xl mx-auto"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-slate-900 text-white rounded-full px-8 py-4 hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl",
+      "secondary": "bg-white text-slate-900 border border-slate-200 rounded-full px-8 py-4 hover:border-slate-400 transition-all",
+      "accent": "bg-gradient-to-r from-[#1B93A4] via-[#3B82F6] to-[#D946EF] text-white rounded-full px-8 py-4 hover:opacity-90 transition-opacity shadow-md"
+    },
+    "cards": {
+      "style": "bg-white border border-slate-100 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-shadow duration-300",
+      "glass": "bg-white/60 backdrop-blur-md border border-white/50 rounded-2xl shadow-sm"
+    },
+    "inputs": {
+      "style": "bg-slate-50 border-slate-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-slate-900 focus:border-transparent transition-all"
+    },
+    "navigation": {
+      "style": "fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-xl border border-slate-200/50 rounded-full px-8 py-3 shadow-lg flex items-center gap-8"
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_abstract": "https://images.unsplash.com/photo-1765046255517-412341954c4c?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "office_meeting": "https://images.unsplash.com/photo-1652081155813-bf703fadbbaf?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "barcelona_vibe": "https://images.unsplash.com/photo-1706026574449-129e37c2d312?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "medical_clinic": "https://images.unsplash.com/photo-1762625570087-6d98fca29531?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "renovation_architect": "https://images.unsplash.com/photo-1577561776790-1a20c419b1a2?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "tech_abstract": "https://images.unsplash.com/photo-1640358336205-942f48bd940f?crop=entropy&cs=srgb&fm=jpg&q=85"
+    },
+    "icons": "Lucide React (default), Phosphor Icons (for marketing)"
+  },
+  "motion": {
+    "library": "Framer Motion",
+    "settings": {
+      "transition": {
+        "type": "spring",
+        "stiffness": 100,
+        "damping": 20
+      },
+      "viewport": {
+        "once": true,
+        "margin": "-100px"
+      }
+    }
+  },
+  "accessibility": {
+    "contrast": "Ensure WCAG AA compliance. Use APCA for fine-tuning.",
+    "reduced_motion": "Respect prefers-reduced-motion media query.",
+    "semantic_html": "Use proper heading hierarchy (h1-h6), landmarks (nav, main, footer), and aria-labels."
+  },
+  "seo": {
+    "meta": "Prioritize title and description tags for Barcelona/Catalonia keywords.",
+    "performance": "Optimize images (WebP), lazy load below fold, minimize JS bundles.",
+    "structure": "Use JSON-LD for structured data (Organization, LocalBusiness)."
+  },
+  "instructions_to_main_agent": [
+    "Implement the 'Leapifyes OS' vision: A unified, elite corporate platform.",
+    "Use the provided image URLs for specific sections (Hero, Sectors, About).",
+    "Strictly follow the 'White Minimalist' theme with 'Leapifyes Gradient' accents.",
+    "Ensure the 'App Dashboard Demo' feels distinct but connected to the marketing site.",
+    "Prioritize SEO structure (semantic HTML, meta tags) for the Barcelona market.",
+    "Use 'Manrope' for headings and 'Plus Jakarta Sans' for body text.",
+    "Create a 'Hub of Solutions' and 'Hub of Sectores' with distinct visual identities but shared DNA.",
+    "Implement the 'Interactive Diagnosis' as a smooth, step-by-step wizard.",
+    "Ensure all forms are RGPD compliant (checkboxes, links to privacy policy).",
+    "Do NOT use generic 'Inter' font for headings.",
+    "Do NOT use full-screen gradients.",
+    "Do NOT use 'Lorem Ipsum' - use realistic copy related to Digital Transformation and AI."
+  ],
+  "universal_guidelines": [
+    "Avoid 'AI slop' aesthetics (generic centered layouts, overuse of purple/teal).",
+    "Use generous spacing (p-12, p-24) to create a premium feel.",
+    "Add micro-interactions to ALL interactive elements.",
+    "Ensure mobile responsiveness is flawless (stack grids, adjust font sizes).",
+    "Use 'sonner' for toast notifications.",
+    "Use 'lucide-react' for icons.",
+    "Follow the 'Bento' grid layout for feature sections."
+  ]
+}

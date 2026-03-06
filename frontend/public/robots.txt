@@ -1,0 +1,38 @@
+User-agent: *
+Allow: /
+
+# Marketing pages - fully crawlable
+Allow: /
+Allow: /soluciones
+Allow: /soluciones/transformacion-digital
+Allow: /soluciones/agentes-ia
+Allow: /sectores
+Allow: /sectores/servicios-hogar-reformas
+Allow: /sectores/clinicas-salud
+Allow: /sectores/servicios-profesionales
+Allow: /casos
+Allow: /metodo
+Allow: /empresa
+Allow: /recursos
+Allow: /contacto
+Allow: /barcelona
+Allow: /cataluna
+
+# Legal pages
+Allow: /legal/privacidad
+Allow: /legal/cookies
+Allow: /legal/aviso-legal
+
+# App section - no indexing (interactive demo)
+Disallow: /app
+Disallow: /app/*
+
+# Block API and internal paths
+Disallow: /api
+Disallow: /api/*
+
+# Sitemap
+Sitemap: https://leapifyes.com/sitemap.xml
+
+# Crawl delay for politeness
+Crawl-delay: 1
