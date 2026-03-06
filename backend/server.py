@@ -646,6 +646,45 @@ async def get_stats():
         "newsletter_subscribers": newsletter_count
     }
 
+@api_router.get("/admin/system/health")
+async def admin_system_health(admin: dict = Depends(require_admin)):
+    """Detailed system health for admin panel"""
+    import time
+    start = time.time()
+    
+    # Check DB connectivity
+    try:
+        db_info = await db.command("ping")
+        db_ok = db_info.get("ok") == 1.0
+    except Exception:
+        db_ok = False
+    
+    db_latency = round((time.time() - start) * 1000, 1)  # ms
+    
+    # Collection counts
+    contacts_count = await db.contacts.count_documents({})
+    diagnostics_count = await db.diagnostics.count_documents({})
+    users_count = await db.users.count_documents({})
+    projects_count = await db.projects.count_documents({})
+    newsletter_count = await db.newsletter.count_documents({})
+    
+    return {
+        "api_status": "operational",
+        "database": {
+            "connected": db_ok,
+            "latency_ms": db_latency,
+        },
+        "collections": {
+            "contacts": contacts_count,
+            "diagnostics": diagnostics_count,
+            "users": users_count,
+            "projects": projects_count,
+            "newsletter": newsletter_count,
+        },
+        "server_time": datetime.now(timezone.utc).isoformat(),
+        "version": "2.0.0"
+    }
+
 
 # === Helper Functions ===
 
