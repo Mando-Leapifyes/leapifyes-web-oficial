@@ -586,6 +586,17 @@ async def create_diagnostic(input: DiagnosticCreate):
     await db.diagnostics.insert_one(doc)
     return diagnostic_obj
 
+@api_router.get("/diagnostics", response_model=List[Diagnostic])
+async def get_all_diagnostics(admin: dict = Depends(require_admin)):
+    """Get all diagnostics (admin)"""
+    diagnostics = await db.diagnostics.find({}, {"_id": 0}).to_list(1000)
+    for diag in diagnostics:
+        if isinstance(diag.get('created_at'), str):
+            diag['created_at'] = datetime.fromisoformat(diag['created_at'])
+    # Sort them by created_at descending
+    diagnostics.sort(key=lambda x: x.get('created_at', datetime.min), reverse=True)
+    return diagnostics
+
 @api_router.get("/diagnostic/{diagnostic_id}", response_model=Diagnostic)
 async def get_diagnostic(diagnostic_id: str):
     """Get a specific diagnostic result"""

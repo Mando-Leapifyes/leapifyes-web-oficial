@@ -43,6 +43,7 @@ const AdminRoute = lazy(() => import("./components/layout/AdminRoute"));
 const AdminLayout = lazy(() => import("./components/layout/AdminLayout"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
+const AdminDiagnostics = lazy(() => import("./pages/admin/AdminDiagnostics"));
 
 // Loading fallback for lazy components
 const AppLoading = () => (
@@ -141,7 +142,7 @@ function App() {
                 }>
                   <Route index element={<AdminDashboard />} />
                   <Route path="leads" element={<AdminLeads />} />
-                  <Route path="diagnostics" element={<div className="p-8 text-white">Módulo Diagnósticos (En construcción)</div>} />
+                  <Route path="diagnostics" element={<AdminDiagnostics />} />
                   <Route path="ai-logs" element={<div className="p-8 text-white">Módulo IA (En construcción)</div>} />
                   <Route path="projects" element={<div className="p-8 text-white">Módulo Proyectos (En construcción)</div>} />
                   <Route path="system" element={<div className="p-8 text-white">Módulo Sistema (En construcción)</div>} />
