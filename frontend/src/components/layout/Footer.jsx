@@ -1,38 +1,40 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter, ArrowUpRight, Award } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter, ArrowUpRight } from 'lucide-react';
 import { openCookieSettings } from '../CookieBanner';
 import { ASSETS } from '../../lib/assets';
-
-const FOOTER_LINKS = {
-  servicios: [
-    { label: 'Transformación Digital', href: '/soluciones/transformacion-digital' },
-    { label: 'Agentes IA y Automatización', href: '/soluciones/agentes-ia' },
-    { label: 'Desarrollo Web a Medida', href: '/soluciones/desarrollo-web' },
-    { label: 'ERP y CRM a Medida', href: '/soluciones/erp-crm' },
-    { label: 'Sistemas a Medida', href: '/soluciones/sistemas-medida' },
-    { label: 'Cumplimiento RGPD', href: '/soluciones/cumplimiento-rgpd' },
-  ],
-  productos: [
-    { label: 'MANDO by Leapifyes', href: 'https://mando.leapifyes.com', external: true, logo: ASSETS.logoMando, logoClass: 'rounded-full' },
-    { label: 'TRÉBOL Finance', href: 'https://trebolfinance.leapifyes.com/login', external: true, logo: ASSETS.logoTrebol, logoClass: 'rounded-sm' },
-  ],
-  empresa: [
-    { label: 'Método', href: '/metodo' },
-    { label: 'Casos de Éxito', href: '/casos' },
-    { label: 'Sobre Nosotros', href: '/empresa' },
-    { label: 'Blog / Recursos', href: '/recursos' },
-    { label: 'Contacto', href: '/contacto' },
-    { label: 'Portal Clientes', href: '/portal/login' },
-  ],
-  legal: [
-    { label: 'Política de Privacidad', href: '/legal/privacidad' },
-    { label: 'Política de Cookies', href: '/legal/cookies' },
-    { label: 'Aviso Legal', href: '/legal/aviso-legal' },
-  ],
-};
+import { useLocale } from '../../context/LocaleContext';
 
 const Footer = () => {
+  const { t } = useLocale();
   const currentYear = new Date().getFullYear();
+
+  const FOOTER_LINKS = {
+    servicios: [
+      { label: t('nav', 'servicios'), href: '/soluciones/transformacion-digital' },
+      { label: t('home', 'sol_ia'), href: '/soluciones/agentes-ia' },
+      { label: t('home', 'sol_sis'), href: '/soluciones/desarrollo-web' },
+      { label: 'ERP y CRM a Medida', href: '/soluciones/erp-crm' },
+      { label: 'Sistemas a Medida', href: '/soluciones/sistemas-medida' },
+      { label: 'Cumplimiento RGPD', href: '/soluciones/cumplimiento-rgpd' },
+    ],
+    productos: [
+      { label: 'MANDO by Leapifyes', href: 'https://mando.leapifyes.com', external: true, logo: ASSETS.logoMando, logoClass: 'rounded-full' },
+      { label: 'TRÉBOL Finance', href: 'https://trebolfinance.leapifyes.com/login', external: true, logo: ASSETS.logoTrebol, logoClass: 'rounded-sm' },
+    ],
+    empresa: [
+      { label: t('nav', 'metodo'), href: '/metodo' },
+      { label: t('nav', 'casos'), href: '/casos' },
+      { label: t('nav', 'empresa'), href: '/empresa' },
+      { label: t('nav', 'blog'), href: '/recursos' },
+      { label: 'Contacto', href: '/contacto' },
+      { label: t('nav', 'portal'), href: '/portal/login' },
+    ],
+    legal: [
+      { label: 'Política de Privacidad', href: '/legal/privacidad' },
+      { label: 'Política de Cookies', href: '/legal/cookies' },
+      { label: 'Aviso Legal', href: '/legal/aviso-legal' },
+    ],
+  };
 
   return (
     <footer className="bg-[#060910] border-t border-[#1B93A4]/20" data-testid="main-footer">
@@ -50,8 +52,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-[#8892A4] text-sm mb-6 leading-relaxed">
-              Transformamos pymes y autónomos en negocios digitales
-              con estrategia, herramientas y acompañamiento humano.
+              {t('footer', 'brand_sub')}
             </p>
             <div className="space-y-3 text-sm mb-6">
               <a
@@ -70,7 +71,7 @@ const Footer = () => {
               </a>
               <div className="flex items-center gap-2 text-[#8892A4]">
                 <MapPin className="w-4 h-4" />
-                Barcelona, España
+                {t('footer', 'location')}
               </div>
             </div>
 
@@ -108,7 +109,7 @@ const Footer = () => {
 
           {/* Servicios Column */}
           <div>
-            <h4 className="font-bold text-[#F0F4FF] mb-4 text-xs uppercase tracking-wider">Servicios</h4>
+            <h4 className="font-bold text-[#F0F4FF] mb-4 text-xs uppercase tracking-wider">{t('footer', 'col_services')}</h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.servicios.map((link) => (
                 <li key={link.href}>
@@ -125,7 +126,7 @@ const Footer = () => {
 
           {/* Productos Column */}
           <div>
-            <h4 className="font-bold text-[#F0F4FF] mb-4 text-xs uppercase tracking-wider">Productos</h4>
+            <h4 className="font-bold text-[#F0F4FF] mb-4 text-xs uppercase tracking-wider">{t('footer', 'col_products')}</h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.productos.map((link) => (
                 <li key={link.href}>
@@ -146,7 +147,7 @@ const Footer = () => {
 
           {/* Empresa Column */}
           <div>
-            <h4 className="font-bold text-[#F0F4FF] mb-4 text-xs uppercase tracking-wider">Empresa</h4>
+            <h4 className="font-bold text-[#F0F4FF] mb-4 text-xs uppercase tracking-wider">{t('footer', 'col_company')}</h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.empresa.map((link) => (
                 <li key={link.href}>
@@ -163,7 +164,7 @@ const Footer = () => {
 
           {/* Legal Column */}
           <div>
-            <h4 className="font-bold text-[#F0F4FF] mb-4 text-xs uppercase tracking-wider">Legal</h4>
+            <h4 className="font-bold text-[#F0F4FF] mb-4 text-xs uppercase tracking-wider">{t('footer', 'col_legal')}</h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.legal.map((link) => (
                 <li key={link.href}>
@@ -181,7 +182,7 @@ const Footer = () => {
                   className="text-[#8892A4] hover:text-[#F0F4FF] transition-colors text-sm"
                   data-testid="manage-cookies-btn"
                 >
-                  Gestionar cookies
+                  {t('footer', 'manage_cookies')}
                 </button>
               </li>
             </ul>
@@ -196,10 +197,10 @@ const Footer = () => {
         <div className="container-main py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-4">
             <p className="text-[#8892A4] text-xs">
-              © {currentYear} DigitalLeap Solutions S.L.U. CIF B22984454. Todos los derechos reservados. Leapifyes es una marca comercial de DigitalLeap Solutions S.L.U.
+              © {currentYear} {t('footer', 'bottom_text')}
             </p>
             <p className="text-[#8892A4]/60 text-xs">
-              Desarrollado con ❤️ en Barcelona
+              {t('footer', 'made_with')}
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-3 text-xs text-[#8892A4]/40">

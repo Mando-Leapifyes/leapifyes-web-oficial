@@ -22,31 +22,95 @@ export const TRANSLATIONS = {
       imd_tag: 'Herramienta gratuita', imd_title: '¿Cómo de digital es tu negocio?',
       imd_sub: 'Haz el diagnóstico IMD y descubre tu nivel de madurez digital en 5 minutos.',
       imd_cta: 'Hacer el diagnóstico gratuito',
-      footer_rights: 'Todos los derechos reservados.'
-    }
-  },
-  ca: {
-    nav: {
-      productos: 'Productes', servicios: 'Serveis', sectores: 'Sectors',
-      casos: 'Casos', metodo: 'Mètode', empresa: 'Empresa', blog: 'Blog',
-      diagnostico: 'Diagnòstic', portal: 'Portal', agendar: 'Agenda diagnòstic'
+      footer_rights: 'Todos los derechos reservados.',
+      seo_title: 'Leapifyes | Transformación Digital, IA y Sistemas a Medida en Barcelona',
+      seo_desc: 'Consultora de transformación digital en Barcelona. CRM, automatización IA, desarrollo web y sistemas a medida para pymes y autónomos. Diagnóstico gratuito.',
+      stat_years: 'años', stat_years_desc: 'Experiencia en ventas y transformación digital',
+      stat_saas_desc: 'Propios en producción: MANDO y TRÉBOL Finance',
+      stat_fee_desc: 'Fee/retainer — nunca por horas',
+      stat_cases: 'casos', stat_cases_desc: 'Éxitos documentados en Barcelona',
+      serv_label: 'Qué hacemos para ti', serv_title: 'No vendemos software.', serv_gradient: 'Transformamos negocios.',
+      learn_more: 'Conocer más',
+      tools_title: 'Herramientas interactivas',
+      prod_label: 'Lo que construimos', prod_title: 'No solo aconsejamos.', prod_gradient: 'Desarrollamos SaaS propios.',
+      prod_sub: 'Creamos las herramientas que nosotros mismos necesitaríamos. Eso nos hace diferentes.',
+      mando_tag: 'LIVE EN PRODUCCIÓN', mando_sub: 'ERP completo para reformas, construcción y mantenimiento', mando_desc: 'El trabajo ya es duro. La gestión no debería serlo. MANDO centraliza presupuestos, obras, facturas, incidencias y equipo en un solo panel. Ahorro medio demostrado: 3–4 horas diarias por usuario.',
+      trebol_tag: 'BETA ACTIVA', trebol_sub: 'Tu dinero, inteligente. Fintech personal con IA.', trebol_desc: 'Gestión financiera personal en 18 monedas con análisis IA, predicciones de gasto, alertas inteligentes y resumen semanal automático.',
+      sect_label: 'Sectores donde operamos', sect_title: 'Conocemos tu sector.', sect_gradient: 'Hablamos tu idioma.',
+      cases_label: 'Resultados reales, negocios reales', cases_title: 'No prometemos.', cases_gradient: 'Demostramos.',
+      method_label: 'El método Leapifyes', method_title: 'Hacemos fácil lo importante.', method_gradient: 'Tecnología que entiendes, resultados que ves.',
+      team_label: 'El equipo detrás de Leapifyes', team_title: 'Personas reales.', team_gradient: 'Compromiso real.',
+      team_sub: 'En Leapifyes combinamos experiencia en ventas, CRM y transformación digital con tecnología de primer nivel.',
+      founder_desc: 'Detrás de Leapifyes hay más de una década de trabajo directo con negocios reales. La obsesión: unir lo digital con lo humano.',
+      cta_title: '¿Listo para dar el salto?', cta_sub: 'Tu negocio merece el salto. Nosotros te acompañamos.', cta_desc: 'Agenda una llamada estratégica gratuita de 30 minutos. Sin compromisos.'
     },
-    home: {
-      hero_tag: 'Amb Leapifyes no fas un pas, fas un salt',
-      hero_title_1: 'Transformem', hero_title_2: 'negocis.', hero_title_3: 'Construïm el', hero_title_4: 'futur.',
-      hero_sub: 'Digitalitzem pimes i autònoms a Espanya — amb estratègia, IA i sistemes a mida.',
-      cta_agendar: 'Agenda diagnòstic gratuït', cta_servicios: 'Veure els nostres serveis',
-      tag_barcelona: 'Barcelona, Espanya', tag_ia: 'Agents IA', tag_sistemas: 'Sistemes a mida',
-      sol_td: 'Transformació Digital', sol_td_sub: 'Processos, CRM, automatització intel·ligent.',
-      sol_ia: 'Agents IA 24/7', sol_ia_sub: 'Atén, qualifica i ven sense intervenció.',
-      sol_sis: 'Sistemes a Mida', sol_sis_sub: 'Web, ERP, apps pròpies i SaaS escalable.',
-      planes_tag: 'Plans & Preus', planes_hook: 'Col·laboracions dissenyades per generar impacte real.',
-      planes_sub: 'Fee mensual o per fites. Sense permanència. Sense sorpreses.',
-      plan_cta: 'Veure detall del pla', plan_popular: 'Més popular',
-      imd_tag: 'Eina gratuïta', imd_title: 'Com de digital és el teu negoci?',
-      imd_sub: 'Fes el diagnòstic IMD i descobreix el teu nivell de maduresa digital en 5 minuts.',
-      imd_cta: 'Fer el diagnòstic gratuït',
-      footer_rights: 'Tots els drets reservats.'
+    empresa: {
+      seo_title: 'Sobre Nosotros | Leapifyes — Transformación Digital Barcelona',
+      seo_desc: 'Leapifyes nació para resolver un problema real: hacer la transformación digital accesible para pymes y autónomos en España.',
+      hero_tag: 'Sobre Nosotros',
+      hero_title: 'Somos tu socio digital',
+      hero_sub: 'Con Leapifyes, lo digital deja de ser un problema y se convierte en tu ventaja.',
+      hist_title: 'Nuestra Historia',
+      hist_p1: 'Leapifyes nació para resolver un problema real: miles de pymes, autónomos y emprendedores que se sienten fuera de lugar en lo digital.',
+      hist_p2: 'Creemos que la transformación digital no puede ser un lujo: debe ser simple y cercana.',
+      vision_title: 'Visión', vision_text: 'Que ninguna pyme ni autónomo quede atrás en lo digital.',
+      mision_title: 'Misión', mision_text: 'Simplificamos lo digital: solo lo necesario, mejores resultados.',
+      prop_title: 'Propósito', prop_text: 'Democratizamos la digitalización para todos los negocios.',
+      founder_title: 'Nuestro Fundador',
+      founder_sub: 'Transformador digital con visión humana.',
+      team_title: 'Nuestro Equipo',
+      team_sub: 'Un equipo multidisciplinar que combina tecnología y empatía.',
+      bcn_title: 'Barcelona, nuestra casa',
+      bcn_sub: 'Conocemos el tejido empresarial catalán, sus retos y oportunidades.',
+      cta_title: '¿Conectamos?',
+      cta_sub: 'Cuéntanos qué tienes en mente.'
+    },
+    imd: {
+      title: '¿Cómo de digital es tu negocio?',
+      sub: 'Diagnóstico inteligente en 5 minutos. Recibe un plan de acción con IA.',
+      start: 'Iniciar diagnóstico',
+      next: 'Siguiente',
+      restart: 'Repetir diagnóstico',
+      results_title: 'Tu Índice de Madurez Digital',
+      global_score: 'Puntuación global',
+      comparative: 'Comparativa sector',
+      ai_analysis: 'Análisis IA Leapifyes',
+      analyzing: 'Analizando tu diagnóstico...',
+      step1_title: 'Estrategia y Negocio',
+      step2_title: 'Procesos',
+      step3_title: 'Organización y Personas',
+      step4_title: 'Infraestructura',
+      step5_title: 'Productos y Servicios'
+    },
+    footer: {
+      brand_sub: 'Transformamos pymes y autónomos en negocios digitales con estrategia, herramientas y acompañamiento humano.',
+      location: 'Barcelona, España',
+      col_services: 'Servicios',
+      col_products: 'Productos',
+      col_company: 'Empresa',
+      col_legal: 'Legal',
+      manage_cookies: 'Gestionar cookies',
+      bottom_text: 'DigitalLeap Solutions S.L.U. CIF B22984454. Leapifyes es una marca comercial de DigitalLeap Solutions S.L.U.',
+      made_with: 'Desarrollado con ❤️ en Barcelona'
+    },
+    cookies: {
+      title: 'Utilizamos cookies',
+      description: 'Usamos cookies técnicas (esenciales) y cookies de análisis y marketing para mejorar tu experiencia.',
+      accept_all: 'Aceptar todo',
+      reject: 'Rechazar',
+      settings: 'Configurar'
+    },
+    data: {
+      plans_detail: {
+        'start': { name: 'START', tagline: 'El primer paso', price: '497', badge: 'Ideal para comenzar', perfil: "Para autónomos y pymes que quieren orden.", incluye: ['Diagnóstico digital', 'CRM configurado'], proceso: [{ title: 'Diagnostico', desc: 'Analisis' }], resultados: [{ val: '3-5h', label: 'Horas', desc: 'Tiempo' }] },
+        'essential': { name: 'ESSENTIAL', tagline: 'Crecimiento', price: '750', badge: 'Popular', perfil: "Para pymes con equipo.", incluye: ['CRM avanzado'], proceso: [{ title: 'Auditoria', desc: 'Mapeo' }], resultados: [{ val: '5 pers.', label: 'Equipo', desc: 'Alineado' }] },
+        'pro': { name: 'PRO', tagline: 'IA & Escala', price: '950', badge: '⭐ TOP', perfil: "Para escalar con IA.", incluye: ['Agente IA'], proceso: [{ title: 'IA Dev', desc: 'Despliegue' }], resultados: [{ val: '24/7', label: 'IA', desc: 'Atencion' }] },
+        'premium-360': { name: 'PREMIUM 360', tagline: 'Transformación total', price: '2.000', badge: 'VIP', perfil: "Transformación integral.", incluye: ['Todo Leapifyes'], proceso: [{ title: '360 Audit', desc: 'Total' }], resultados: [{ val: '100%', label: 'Digital', desc: 'Total' }] }
+      },
+      imd_dimensions: [
+        { id: 'estrategia', label: 'Estrategia', icon: '🎯', questions: [{ id: 'e1', text: '¿Tienes plan digital?', options: [{ label: 'No', value: 0 }, { label: 'Sí', value: 100 }] }] },
+        { id: 'procesos', label: 'Procesos', icon: '⚙️', questions: [{ id: 'p1', text: '¿Papel o digital?', options: [{ label: 'Papel', value: 0 }, { label: 'Digital', value: 100 }] }] }
+      ]
     }
   },
   en: {
@@ -70,127 +134,95 @@ export const TRANSLATIONS = {
       imd_tag: 'Free tool', imd_title: 'How digital is your business?',
       imd_sub: 'Take the IMD diagnosis and discover your digital maturity level in 5 minutes.',
       imd_cta: 'Take the free diagnosis',
-      footer_rights: 'All rights reserved.'
-    }
-  },
-  fr: {
-    nav: {
-      productos: 'Produits', servicios: 'Services', sectores: 'Secteurs',
-      casos: 'Cas', metodo: 'Méthode', empresa: 'Entreprise', blog: 'Blog',
-      diagnostico: 'Diagnostic', portal: 'Portail', agendar: 'Planifier diagnostic'
+      footer_rights: 'All rights reserved.',
+      seo_title: 'Leapifyes | Digital Transformation, AI & Custom Systems in Barcelona',
+      seo_desc: 'Digital transformation consultancy in Barcelona. CRM, AI automation, web development and custom systems for SMEs and freelancers. Free diagnosis.',
+      stat_years: 'years', stat_years_desc: 'Experience in sales and digital transformation',
+      stat_saas_desc: 'Own SaaS in production: MANDO and TRÉBOL Finance',
+      stat_fee_desc: 'Fee/retainer — never hourly',
+      stat_cases: 'cases', stat_cases_desc: 'Documented successes in Barcelona',
+      serv_label: 'What we do for you', serv_title: 'We don\'t sell software.', serv_gradient: 'We transform businesses.',
+      learn_more: 'Learn more',
+      tools_title: 'Interactive tools',
+      prod_label: 'What we build', prod_title: 'We don\'t just advise.', prod_gradient: 'We develop our own SaaS.',
+      prod_sub: 'We create the tools we ourselves would need. That makes us different.',
+      mando_tag: 'LIVE IN PRODUCTION', mando_sub: 'Complete ERP for reforms, construction and maintenance', mando_desc: 'Work is already hard. Management shouldn\'t be. MANDO centralizes budgets, works, invoices, incidents and team in one panel.',
+      trebol_tag: 'ACTIVE BETA', trebol_sub: 'Your money, intelligent. Personal Fintech with AI.', trebol_desc: 'Personal financial management in 18 currencies with AI analysis, spending predictions and automatic weekly summary.',
+      sect_label: 'Sectors where we operate', sect_title: 'We know your sector.', sect_gradient: 'We speak your language.',
+      cases_label: 'Real results, real businesses', cases_title: 'We don\'t promise.', cases_gradient: 'We demonstrate.',
+      method_label: 'The Leapifyes method', method_title: 'We make the important easy.', method_gradient: 'Technology you understand, results you see.',
+      team_label: 'The team behind Leapifyes', team_title: 'Real people.', team_gradient: 'Real commitment.',
+      team_sub: 'At Leapifyes we combine experience in sales, CRM and digital transformation with first-class technology.',
+      founder_desc: 'Behind Leapifyes is more than a decade of direct work with real businesses. The obsession: joining digital with human.',
+      cta_title: 'Ready to take the leap?', cta_sub: 'Your business deserves the leap. We accompany you.', cta_desc: 'Book a free 30-minute strategic call. No commitments.'
     },
-    home: {
-      hero_tag: 'Avec Leapifyes vous ne faites pas un pas, vous faites un bond',
-      hero_title_1: 'Nous transformons', hero_title_2: 'les entreprises.', hero_title_3: 'Nous construisons le', hero_title_4: 'futur.',
-      hero_sub: 'Nous digitalisons les PME et indépendants en Espagne — avec stratégie, IA et systèmes sur mesure.',
-      cta_agendar: 'Planifier diagnostic gratuit', cta_servicios: 'Voir nos services',
-      tag_barcelona: 'Barcelone, Espagne', tag_ia: 'Agents IA', tag_sistemas: 'Systèmes sur mesure',
-      sol_td: 'Transformation Digitale', sol_td_sub: 'Processus, CRM, automatisation intelligente.',
-      sol_ia: 'Agents IA 24/7', sol_ia_sub: 'Accueillez, qualifiez et venez sans intervention.',
-      sol_sis: 'Systèmes Sur Mesure', sol_sis_sub: 'Web, ERP, apps propres et SaaS évolutif.',
-      planes_tag: 'Plans & Tarifs', planes_hook: 'Collaborations conçues pour générer un impact réel.',
-      planes_sub: 'Frais mensuels ou par jalons. Sans engagement. Sans surprises.',
-      plan_cta: 'Voir le détail du plan', plan_popular: 'Le plus populaire',
-      imd_tag: 'Outil gratuit', imd_title: 'Quel est votre niveau de digitalisation ?',
-      imd_sub: 'Faites le diagnostic IMD et découvrez votre niveau de maturité numérique en 5 minutes.',
-      imd_cta: 'Faire le diagnostic gratuit',
-      footer_rights: 'Tous droits réservés.'
-    }
-  },
-  pt: {
-    nav: {
-      productos: 'Produtos', servicios: 'Serviços', sectores: 'Sectores',
-      casos: 'Casos', metodo: 'Método', empresa: 'Empresa', blog: 'Blog',
-      diagnostico: 'Diagnóstico', portal: 'Portal', agendar: 'Agendar diagnóstico'
+    empresa: {
+      seo_title: 'About Us | Leapifyes — Digital Transformation Barcelona',
+      seo_desc: 'Leapifyes was born to solve a real problem: making digital transformation accessible for SMEs and freelancers in Spain.',
+      hero_tag: 'About Us',
+      hero_title: 'We are your digital partner',
+      hero_sub: 'With Leapifyes, digital stops being a problem and becomes your advantage.',
+      hist_title: 'Our History',
+      hist_p1: 'Leapifyes was born to solve a real problem: thousands of SMEs and freelancers who feel out of place in digital.',
+      hist_p2: 'We believe digital transformation cannot be a luxury: it must be simple and close.',
+      vision_title: 'Vision', vision_text: 'That no SME or freelancer is left behind in digital.',
+      mision_title: 'Mission', mision_text: 'We simplify digital: only what is necessary, better results.',
+      prop_title: 'Purpose', prop_text: 'We democratize digitalization for all businesses.',
+      founder_title: 'Our Founder',
+      founder_sub: 'Digital transformer with a human vision.',
+      team_title: 'Our Team',
+      team_sub: 'A multidisciplinary team combining technology and empathy.',
+      bcn_title: 'Barcelona, our home',
+      bcn_sub: 'We know the Catalan business fabric, its challenges and opportunities.',
+      cta_title: 'Connect?',
+      cta_sub: 'Tell us what you have in mind.'
     },
-    home: {
-      hero_tag: 'Com a Leapifyes não dás um passo, dás um salto',
-      hero_title_1: 'Transformamos', hero_title_2: 'negócios.', hero_title_3: 'Construímos o', hero_title_4: 'futuro.',
-      hero_sub: 'Digitalizamos PMEs e freelancers em Espanha — com estratégia, IA e sistemas à medida.',
-      cta_agendar: 'Agendar diagnóstico gratuito', cta_servicios: 'Ver os nossos serviços',
-      tag_barcelona: 'Barcelona, Espanha', tag_ia: 'Agentes IA', tag_sistemas: 'Sistemas à medida',
-      sol_td: 'Transformação Digital', sol_td_sub: 'Processos, CRM, automatização inteligente.',
-      sol_ia: 'Agentes IA 24/7', sol_ia_sub: 'Atende, qualifica e vende sem intervenção.',
-      sol_sis: 'Sistemas à Medida', sol_sis_sub: 'Web, ERP, apps próprias e SaaS escalável.',
-      planes_tag: 'Planos & Preços', planes_hook: 'Colaborações desenhadas para gerar impacto real.',
-      planes_sub: 'Fee mensal o por marcos. Sem permanência. Sem surpresas.',
-      plan_cta: 'Ver detalhe do plano', plan_popular: 'Mais popular',
-      imd_tag: 'Ferramenta gratuita', imd_title: 'Quão digital é o seu negócio?',
-      imd_sub: 'Faça o diagnóstico IMD e descubra o seu nível de maturidade digital em 5 minutos.',
-      imd_cta: 'Fazer o diagnóstico gratuito',
-      footer_rights: 'Todos os direitos reservados.'
-    }
-  },
-  it: {
-    nav: {
-      productos: 'Prodotti', servicios: 'Servizi', sectores: 'Settori',
-      casos: 'Casi', metodo: 'Metodo', empresa: 'Azienda', blog: 'Blog',
-      diagnostico: 'Diagnosi', portal: 'Portale', agendar: 'Prenota diagnosi'
+    imd: {
+      title: 'How digital is your business?',
+      sub: 'Smart diagnosis in 5 minutes. Receive an AI action plan.',
+      start: 'Start diagnosis',
+      next: 'Next',
+      restart: 'Repeat diagnosis',
+      results_title: 'Your Digital Maturity Index',
+      global_score: 'Global score',
+      comparative: 'Industry benchmarking',
+      ai_analysis: 'Leapifyes AI Analysis',
+      analyzing: 'Analyzing your diagnosis...',
+      step1_title: 'Strategy & Business',
+      step2_title: 'Processes',
+      step3_title: 'Organization & People',
+      step4_title: 'Infrastructure',
+      step5_title: 'Products & Services'
     },
-    home: {
-      hero_tag: 'Con Leapifyes non fai un passo, fai un salto',
-      hero_title_1: 'Trasformiamo', hero_title_2: 'le aziende.', hero_title_3: 'Costruiamo il', hero_title_4: 'futuro.',
-      hero_sub: 'Digitalizziamo PMI e freelance in Spagna — con strategia, IA e sistemi su misura.',
-      cta_agendar: 'Prenota diagnosi gratuita', cta_servicios: 'Vedi i nostri servizi',
-      tag_barcelona: 'Barcellona, Spagna', tag_ia: 'Agenti IA', tag_sistemas: 'Sistemi su misura',
-      sol_td: 'Trasformazione Digitale', sol_td_sub: 'Processi, CRM, automazione intelligente.',
-      sol_ia: 'Agenti IA 24/7', sol_ia_sub: 'Assisti, qualifica e vendi senza intervento.',
-      sol_sis: 'Sistemi Su Misura', sol_sis_sub: 'Web, ERP, app proprie e SaaS scalabile.',
-      planes_tag: 'Piani & Prezzi', planes_hook: 'Collaborazioni progettate per generare impatto reale.',
-      planes_sub: 'Canone mensile o per milestone. Senza vincoli. Senza sorprese.',
-      plan_cta: 'Vedi dettaglio piano', plan_popular: 'Più popolare',
-      imd_tag: 'Strumento gratuito', imd_title: 'Quanto è digitale la tua azienda?',
-      imd_sub: 'Fai la diagnosi IMD e scopri il tuo livello di maturità digitale in 5 minuti.',
-      imd_cta: 'Fare la diagnosi gratuita',
-      footer_rights: 'Tutti i diritti riservati.'
-    }
-  },
-  de: {
-    nav: {
-      productos: 'Produkte', servicios: 'Dienste', sectores: 'Branchen',
-      casos: 'Fälle', metodo: 'Methode', empresa: 'Unternehmen', blog: 'Blog',
-      diagnostico: 'Diagnose', portal: 'Portal', agendar: 'Diagnose buchen'
+    footer: {
+      brand_sub: 'We transform SMEs and freelancers into digital businesses with strategy, tools, and human support.',
+      location: 'Barcelona, Spain',
+      col_services: 'Services',
+      col_products: 'Products',
+      col_company: 'Company',
+      col_legal: 'Legal',
+      manage_cookies: 'Manage cookies',
+      bottom_text: 'DigitalLeap Solutions S.L.U. CIF B22984454. Leapifyes is a trademark of DigitalLeap Solutions S.L.U.',
+      made_with: 'Developed with ❤️ in Barcelona'
     },
-    home: {
-      hero_tag: 'Mit Leapifyes machst du keinen Schritt, du machst einen Sprung',
-      hero_title_1: 'Wir transformieren', hero_title_2: 'Unternehmen.', hero_title_3: 'Wir bauen die', hero_title_4: 'Zukunft.',
-      hero_sub: 'Wir digitalisieren KMU und Freiberufler in Spanien — mit Strategie, KI und maßgeschneiderten Systemen.',
-      cta_agendar: 'Kostenlose Diagnose buchen', cta_servicios: 'Unsere Dienste ansehen',
-      tag_barcelona: 'Barcelona, Spanien', tag_ia: 'KI-Agenten', tag_sistemas: 'Maßgeschneiderte Systeme',
-      sol_td: 'Digitale Transformation', sol_td_sub: 'Prozesse, CRM, intelligente Automatisierung.',
-      sol_ia: 'KI-Agenten 24/7', sol_ia_sub: 'Betreuen, qualifizieren und verkaufen ohne Eingriff.',
-      sol_sis: 'Maßgeschneiderte Systeme', sol_sis_sub: 'Web, ERP, eigene Apps und skalierbares SaaS.',
-      planes_tag: 'Pläne & Preise', planes_hook: 'Kooperationen, die echten Impact erzeugen.',
-      planes_sub: 'Monatliche oder Meilenstein-Gebühr. Ohne Bindung. Ohne Überraschungen.',
-      plan_cta: 'Plandetails ansehen', plan_popular: 'Am beliebtesten',
-      imd_tag: 'Kostenloses Tool', imd_title: 'Wie digital ist Ihr Unternehmen?',
-      imd_sub: 'Machen Sie die IMD-Diagnose und entdecken Sie Ihren digitalen Reifegrad in 5 Minuten.',
-      imd_cta: 'Kostenlose Diagnose starten',
-      footer_rights: 'Alle Rechte vorbehalten.'
-    }
-  },
-  nl: {
-    nav: {
-      productos: 'Producten', servicios: 'Diensten', sectores: 'Sectoren',
-      casos: 'Cases', metodo: 'Methode', empresa: 'Bedrijf', blog: 'Blog',
-      diagnostico: 'Diagnose', portal: 'Portaal', agendar: 'Diagnose plannen'
+    cookies: {
+      title: 'We use cookies',
+      description: 'We use technical (essential) cookies and analytics/marketing cookies to improve your experience.',
+      accept_all: 'Accept all',
+      reject: 'Reject',
+      settings: 'Settings'
     },
-    home: {
-      hero_tag: 'Met Leapifyes doe je geen stap, je doet een sprong',
-      hero_title_1: 'Wij transformeren', hero_title_2: 'bedrijven.', hero_title_3: 'Wij bouwen de', hero_title_4: 'toekomst.',
-      hero_sub: 'Wij digitaliseren MKB en freelancers in Spanje — met strategie, AI en op maat gemaakte systemen.',
-      cta_agendar: 'Gratis diagnose plannen', cta_servicios: 'Onze diensten bekijken',
-      tag_barcelona: 'Barcelona, Spanje', tag_ia: 'AI-agenten', tag_sistemas: 'Maatwerk systemen',
-      sol_td: 'Digitale Transformatie', sol_td_sub: 'Processen, CRM, intelligente automatisering.',
-      sol_ia: 'AI-agenten 24/7', sol_ia_sub: 'Ontvang, kwalificeer en verkoop zonder tussenkomst.',
-      sol_sis: 'Maatwerk Systemen', sol_sis_sub: 'Web, ERP, eigen apps en schaalbare SaaS.',
-      planes_tag: 'Plannen & Prijzen', planes_hook: 'Samenwerkingen ontworpen om echte impact te genereren.',
-      planes_sub: 'Maandelijkse of milestone-vergoeding. Zonder binding. Zonder verrassingen.',
-      plan_cta: 'Plandetails bekijken', plan_popular: 'Meest populair',
-      imd_tag: 'Gratis tool', imd_title: 'Hoe digitaal is uw bedrijf?',
-      imd_sub: 'Doe de IMD-diagnose en ontdek uw digitale rijpheid in 5 minuten.',
-      imd_cta: 'Gratis diagnose starten',
-      footer_rights: 'Alle rechten voorbehouden.'
+    data: {
+      plans_detail: {
+        'start': { name: 'START', tagline: 'The first step', price: '497', badge: 'Ideal to start', perfil: "For freelancers and SMEs.", incluye: ['Digital diagnosis', 'CRM setup'], proceso: [{ title: 'Diagnosis', desc: 'Analysis' }], resultados: [{ val: '3-5h', label: 'Hours', desc: 'Time' }] },
+        'essential': { name: 'ESSENTIAL', tagline: 'Growth', price: '750', badge: 'Popular', perfil: "For SMEs with team.", incluye: ['Advanced CRM'], proceso: [{ title: 'Audit', desc: 'Mapping' }], resultados: [{ val: '5 pers.', label: 'Team', desc: 'Aligned' }] },
+        'pro': { name: 'PRO', tagline: 'AI & Scale', price: '950', badge: '⭐ TOP', perfil: "Scale with IA.", incluye: ['AI Agent'], proceso: [{ title: 'AI Dev', desc: 'Deployment' }], resultados: [{ val: '24/7', label: 'AI', desc: 'Attention' }] },
+        'premium-360': { name: 'PREMIUM 360', tagline: 'Complete transformation', price: '2,000', badge: 'VIP', perfil: "Integral transformation.", incluye: ['All Leapifyes'], proceso: [{ title: '360 Audit', desc: 'Total' }], resultados: [{ val: '100%', label: 'Digital', desc: 'Total' }] }
+      },
+      imd_dimensions: [
+        { id: 'estrategia', label: 'Strategy', icon: '🎯', questions: [{ id: 'e1', text: 'Do you have a digital plan?', options: [{ label: 'No', value: 0 }, { label: 'Yes', value: 100 }] }] },
+        { id: 'procesos', label: 'Processes', icon: '⚙️', questions: [{ id: 'p1', text: 'Paper or digital?', options: [{ label: 'Paper', value: 0 }, { label: 'Digital', value: 100 }] }] }
+      ]
     }
   }
 };
@@ -212,8 +244,18 @@ export const LocaleProvider = ({ children }) => {
     return lang[section]?.[key] || TRANSLATIONS['es'][section]?.[key] || key;
   };
 
+  const getData = (key) => {
+    const lang = TRANSLATIONS[locale] || TRANSLATIONS['es'];
+    return lang.data?.[key] || TRANSLATIONS['es'].data?.[key] || [];
+  };
+
+  const getNestedData = (section, key) => {
+    const lang = TRANSLATIONS[locale] || TRANSLATIONS['es'];
+    return lang.data?.[section]?.[key] || TRANSLATIONS['es'].data?.[section]?.[key] || null;
+  };
+
   return (
-    <LocaleContext.Provider value={{ locale, setLocale, t }}>
+    <LocaleContext.Provider value={{ locale, setLocale, t, getData, getNestedData }}>
       {children}
     </LocaleContext.Provider>
   );
