@@ -541,13 +541,33 @@ async def create_contact(input: ContactCreate):
     return contact_obj
 
 @api_router.get("/contacts", response_model=List[Contact])
-async def get_contacts():
+async def get_contacts(admin: dict = Depends(require_admin)):
     """Get all contacts (admin)"""
     contacts = await db.contacts.find({}, {"_id": 0}).to_list(1000)
     for contact in contacts:
         if isinstance(contact.get('created_at'), str):
             contact['created_at'] = datetime.fromisoformat(contact['created_at'])
     return contacts
+
+@api_router.patch("/contacts/{contact_id}")
+async def update_contact_status(contact_id: str, payload: dict, admin: dict = Depends(require_admin)):
+    """Update contact status or add notes (admin)"""
+    update_data = {}
+    if "status" in payload:
+        update_data["status"] = payload["status"]
+    
+    if not update_data:
+        raise HTTPException(status_code=400, detail="No data provided to update")
+
+    result = await db.contacts.update_one(
+        {"id": contact_id},
+        {"$set": update_data}
+    )
+    
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Lead no encontrado")
+        
+    return {"message": "Lead actualizado exitosamente"}
 
 @api_router.post("/diagnostic", response_model=Diagnostic)
 async def create_diagnostic(input: DiagnosticCreate):
