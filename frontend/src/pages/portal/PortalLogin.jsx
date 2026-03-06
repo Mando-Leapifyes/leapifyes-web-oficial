@@ -19,23 +19,29 @@ const PortalLogin = () => {
     password: '',
     company: ''
   });
-  
+
   const { login, register } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     try {
+      let userData;
       if (isLogin) {
-        await login(formData.email, formData.password);
+        userData = await login(formData.email, formData.password);
         toast.success('¡Bienvenido de nuevo!');
       } else {
-        await register(formData.name, formData.email, formData.password, formData.company);
+        userData = await register(formData.name, formData.email, formData.password, formData.company);
         toast.success('¡Cuenta creada correctamente!');
       }
-      navigate('/portal');
+
+      if (userData?.role === 'admin' || userData?.role === 'super_admin') {
+        navigate('/admin');
+      } else {
+        navigate('/portal');
+      }
     } catch (err) {
       const message = err.response?.data?.detail || 'Error al procesar la solicitud';
       toast.error(message);
