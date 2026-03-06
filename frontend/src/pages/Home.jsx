@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from 'react';
 import {
   ArrowRight, RefreshCw, Bot, Globe, Building2, Stethoscope,
   Briefcase, Store, User, Building, CheckCircle2, Zap, Search,
-  Calendar, MessageSquare, Database, Code, Shield, TrendingUp, Users
+  Calendar, MessageSquare, Database, Code, Shield, TrendingUp, Users, MapPin
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import Layout from '../components/layout/Layout';
