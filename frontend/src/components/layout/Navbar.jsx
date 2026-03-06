@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { href: '/metodo', label: 'Método' },
   { href: '/empresa', label: 'Empresa' },
   { href: '/recursos', label: 'Blog' },
-  { href: '/diagnostico', label: '🎯 Diagnóstico', highlight: true },
+  { href: '/diagnostico', label: 'Diagnóstico', highlight: true },
 ];
 
 const PRODUCTS = [
@@ -56,18 +56,17 @@ const Navbar = () => {
 
   return (
     <>
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'nav-dark py-3' : 'py-5'
-        }`}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'nav-dark py-3' : 'py-5'
+          }`}
         data-testid="main-navbar"
       >
         <div className="container-main">
           <div className="flex items-center justify-between">
             {/* Logo - COMPLETO con gradiente */}
             <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
-              <div style={{ width:38, height:38, borderRadius:'50%', padding:2, background:'rgba(27,147,164,0.15)', border:'1.5px solid rgba(27,147,164,0.5)', flexShrink:0 }}>
-                <img src={ASSETS.logoLeapifyes} alt="Leapifyes" style={{ width:'100%', height:'100%', borderRadius:'50%', objectFit:'cover', mixBlendMode:'luminosity' }} />
+              <div style={{ width: 38, height: 38, borderRadius: '50%', padding: 2, background: 'rgba(27,147,164,0.15)', border: '1.5px solid rgba(27,147,164,0.5)', flexShrink: 0 }}>
+                <img src={ASSETS.logoLeapifyes} alt="Leapifyes" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', mixBlendMode: 'luminosity' }} />
               </div>
               <span className="text-lg font-black tracking-tight gradient-text">
                 LEAPIFYES
@@ -141,11 +140,10 @@ const Navbar = () => {
                   <Link
                     key={link.href}
                     to={link.href}
-                    className={`px-4 py-2 font-medium text-sm transition-colors ${
-                      location.pathname === link.href || location.pathname.startsWith(link.href + '/')
+                    className={`px-4 py-2 font-medium text-sm transition-colors ${location.pathname === link.href || location.pathname.startsWith(link.href + '/')
                         ? 'text-[#1B93A4]'
                         : 'text-[#8892A4] hover:text-[#F0F4FF]'
-                    }`}
+                      }`}
                   >
                     {link.label}
                   </Link>
@@ -157,9 +155,9 @@ const Navbar = () => {
             <div className="hidden lg:flex items-center gap-4">
               <LanguageSwitcher />
               <Link to="/portal/login" className="text-[#8892A4] hover:text-[#F0F4FF] text-sm font-medium transition-colors">Portal</Link>
-              <a 
-                href="https://crm.zoho.eu/bookings/Calendariodelaweb" 
-                target="_blank" 
+              <a
+                href="https://crm.zoho.eu/bookings/Calendariodelaweb"
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <Button className="bg-[#1B93A4] hover:bg-[#1B93A4]/90 text-white text-sm px-5 py-2.5 rounded-full font-semibold" data-testid="nav-cta">
@@ -251,9 +249,9 @@ const Navbar = () => {
 
               {/* CTA */}
               <div className="mt-auto">
-                <a 
-                  href="https://crm.zoho.eu/bookings/Calendariodelaweb" 
-                  target="_blank" 
+                <a
+                  href="https://crm.zoho.eu/bookings/Calendariodelaweb"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="block"
                 >
