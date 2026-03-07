@@ -1,13 +1,38 @@
+/**
+ * ⛔ ARCHIVO PROTEGIDO — HOME.JSX
+ * ════════════════════════════════════════════════════════════════
+ * Este archivo ha sido validado y aprobado por Ricardo Serrano
+ * (Fundador & CEO, Leapifyes / DigitalLeap Solutions S.L.U.)
+ *
+ * Commit de referencia aprobado: 48d607f (restaurado en 79320b5)
+ * Fecha de última validación: 2026-03-07
+ *
+ * ⚠️  SI VAS A MODIFICAR ESTE ARCHIVO:
+ * 1. DETENTE — no hagas ningún cambio todavía
+ * 2. MUESTRA al usuario exactamente qué vas a cambiar
+ * 3. ESPERA confirmación explícita antes de proceder
+ * 4. Ver PROTECTED_FILES.md en la raíz del proyecto
+ *
+ * SECCIONES PROTEGIDAS (no eliminar ninguna):
+ *   1. Hero con stats animados
+ *   2. Posicionamiento editorial
+ *   3. 6 tarjetas de servicios
+ *   4. 3 herramientas interactivas (IMD, Calculadora, Demo IA)
+ *   5. Productos MANDO + TRÉBOL
+ *   6. Sectores con descripciones
+ *   7. Casos de éxito (No prometemos. Demostramos.)
+ *   8. Método Leapifyes (5 pasos)
+ *   9. Equipo / Ricardo Serrano
+ *  10. Valores (Lo que nos define)
+ *  11. Planes de colaboración
+ *  12. CTA Final
+ * ════════════════════════════════════════════════════════════════
+ */
+
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
-import {
-  ArrowRight, ArrowUpRight, RefreshCw, Bot, Globe, Building2, Stethoscope,
-  Briefcase, Store, User, Building, CheckCircle2, Zap, Target, Rocket,
-  TrendingUp, Award, Users, Clock, MessageSquare, Heart, Shield, Code,
-  Calendar, Mail, Phone, MapPin, Database, Search, ClipboardList, Calculator,
-  Star
-} from 'lucide-react';
+import { ArrowRight, ArrowUpRight, RefreshCw, Bot, Globe, Building2, Stethoscope, Briefcase, Store, User, Building, CheckCircle2, Zap, Target, Rocket, TrendingUp, Award, Users, Clock, MessageSquare, Heart, Shield, Code, Calendar, Mail, Phone, MapPin, Database, Search, ClipboardList, Calculator, Star } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import Layout from '../components/layout/Layout';
 import SEO from '../components/SEO';
@@ -50,8 +75,6 @@ const SectionHeader = ({ label, title, gradient }) => (
   </motion.div>
 );
 
-/* ═══════════════════════════════════ DATA ═══════════════════════════════════ */
-
 const HERO_STATS = [
   { value: '+15', label: 'años', desc: 'Experiencia en ventas y transformación digital' },
   { value: '2', label: 'SaaS', desc: 'Propios en producción: MANDO y TRÉBOL Finance' },
@@ -85,7 +108,7 @@ const SECTORS = [
 
 const CASES = [
   { result: '−22%', metric: 'absentismo reducido', company: 'Clínica dental, Badalona', description: 'Implantamos sistema de recordatorios automatizados y gestión de agenda digital. El equipo trabaja con más orden y menos llamadas perdidas.', sector: 'Salud' },
-  { result: '+3', metric: 'obras/mes', company: 'Empresa de reformas, L\'Hospitalet', description: 'MANDO les permitió presupuestar más rápido, hacer seguimiento real de cada obra y cobrar sin retrasos. El caos se convirtió en control.', sector: 'Reformas' },
+  { result: '+3', metric: 'obras/mes', company: "Empresa de reformas, L'Hospitalet", description: 'MANDO les permitió presupuestar más rápido, hacer seguimiento real de cada obra y cobrar sin retrasos. El caos se convirtió en control.', sector: 'Reformas' },
   { result: '0', metric: 'sanciones', company: 'Gestoría, Gràcia (Barcelona)', description: 'Cumplimiento RGPD completo, documentación en orden, procesos auditados. Cero sobresaltos normativos desde la implementación.', sector: 'Gestoría' },
   { result: '+28%', metric: 'ticket medio', company: 'Tienda de barrio, Eixample', description: 'CRM ligero + automatización de seguimiento a clientes existentes. Más ventas cruzadas, más retención, más margen por operación.', sector: 'Comercio' },
 ];
@@ -114,8 +137,6 @@ const PLANS = [
   { name: 'PREMIUM 360', slug: 'premium-360', tagline: 'Transformación completa', price: '2.000', features: ['Estrategia de transformación integral', 'Todos los servicios activos simultáneamente', 'Gestión del cambio y adopción', 'Desarrollo de sistemas a medida', 'Soporte prioritario (respuesta < 4h)', 'Roadmap trimestral personalizado'], cta: 'Información detallada', highlighted: false },
 ];
 
-/* ═══════════════════════════════════ COMPONENT ═══════════════════════════════════ */
-
 const Home = () => {
   return (
     <Layout>
@@ -124,17 +145,15 @@ const Home = () => {
         description="Consultora de transformación digital en Barcelona. CRM, automatización IA, desarrollo web y sistemas a medida para pymes y autónomos. Diagnóstico gratuito."
       />
 
-      {/* ══════════ SECCIÓN 1: HERO CINEMATIC ══════════ */}
+      {/* HERO */}
       <section className="relative overflow-hidden" data-testid="hero-section">
         <div className="absolute inset-0">
           <div className="mesh-gradient opacity-60" />
           <div className="grid-pattern absolute inset-0 opacity-20" />
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")' }} />
         </div>
-
         <div className="container-main relative z-10 pt-8 pb-12 md:pt-10 md:pb-16">
           <div className="grid lg:grid-cols-[55%_45%] gap-12 lg:gap-8 items-center">
-            {/* Left — Text */}
             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
               <motion.div variants={fadeInUp} className="mb-6">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold glass-card text-[#1B93A4] border border-[#1B93A4]/20">
@@ -142,22 +161,18 @@ const Home = () => {
                   CON LEAPIFYES NO DAS UN PASO, DAS UN SALTO
                 </span>
               </motion.div>
-
               <motion.h1 variants={fadeInUp} className="font-black text-[#F0F4FF] mb-5 leading-[1.05] tracking-tight" style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(2.5rem, 7vw, 5rem)' }}>
                 Transformamos negocios.<br />
                 <span className="gradient-text">Construimos el futuro.</span>
               </motion.h1>
-
               <motion.p variants={fadeInUp} className="text-lg md:text-xl text-[#8892A4] mb-6 max-w-xl">
                 Digitalizamos pymes y autónomos en España — con estrategia, IA y sistemas a medida.
               </motion.p>
-
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-3 mb-8">
                 <span className="px-4 py-2 rounded-full bg-[#1B93A4]/10 border border-[#1B93A4]/20 text-sm text-[#8892A4] flex items-center gap-2"><MapPin className="w-4 h-4 text-[#1B93A4]" />Barcelona, España</span>
                 <span className="px-4 py-2 rounded-full bg-[#D946EF]/10 border border-[#D946EF]/20 text-sm text-[#8892A4] flex items-center gap-2"><Bot className="w-4 h-4 text-[#D946EF]" />Agentes IA</span>
                 <span className="px-4 py-2 rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-sm text-[#8892A4] flex items-center gap-2"><Zap className="w-4 h-4 text-[#3B82F6]" />Sistemas a medida</span>
               </motion.div>
-
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-12">
                 <a href="https://crm.zoho.eu/bookings/Calendariodelaweb" target="_blank" rel="noopener noreferrer" onClick={trackAgendarDemo}>
                   <Button className="btn-gradient text-base px-8 py-6 font-semibold w-full sm:w-auto" data-testid="hero-cta-primary">
@@ -170,7 +185,6 @@ const Home = () => {
                   </Button>
                 </Link>
               </motion.div>
-
               <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {HERO_STATS.map((stat, i) => (
                   <div key={i} className="text-center">
@@ -183,8 +197,6 @@ const Home = () => {
                 ))}
               </motion.div>
             </motion.div>
-
-            {/* Right — Dashboard Preview */}
             <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:flex flex-col gap-4">
               {[
                 { icon: RefreshCw, title: 'Transformación Digital', desc: 'Procesos, CRM, automatización inteligente.', color: '#1B93A4', delay: 0 },
@@ -208,7 +220,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══════════ SECCIÓN 2: POSICIONAMIENTO EDITORIAL ══════════ */}
+      {/* POSICIONAMIENTO */}
       <section className="section-padding relative" data-testid="editorial-section">
         <div className="container-main">
           <div className="max-w-4xl">
@@ -227,7 +239,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══════════ SECCIÓN 3: CATÁLOGO DE SERVICIOS ══════════ */}
+      {/* SERVICIOS */}
       <section className="section-padding relative border-t border-white/5" data-testid="services-section">
         <div className="container-main">
           <SectionHeader label="Qué hacemos para ti" title="No vendemos software." gradient="Transformamos negocios." />
@@ -256,7 +268,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══════════ SECCIÓN 4: HERRAMIENTAS INTERACTIVAS ══════════ */}
+      {/* HERRAMIENTAS */}
       <section className="section-padding relative" data-testid="tools-section">
         <div className="container-main">
           <SectionHeader label="Descubre dónde está tu negocio" title="Herramientas gratuitas." gradient="Sin registro. Resultados inmediatos." />
@@ -292,7 +304,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══════════ SECCIÓN 5: PRODUCTOS PROPIOS ══════════ */}
+      {/* PRODUCTOS */}
       <section className="section-padding relative border-t border-white/5" data-testid="products-section">
         <div className="container-main">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="text-center mb-8">
@@ -300,16 +312,14 @@ const Home = () => {
             <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-black text-[#F0F4FF] mb-4">No solo aconsejamos. <span className="gradient-text">Desarrollamos SaaS propios.</span></motion.h2>
             <motion.p variants={fadeInUp} className="text-[#8892A4] max-w-2xl mx-auto">Creamos las herramientas que nosotros mismos necesitaríamos. Eso nos hace diferentes.</motion.p>
           </motion.div>
-
           <div className="grid lg:grid-cols-2 gap-8">
-            {/* MANDO */}
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative p-8 md:p-10 rounded-2xl overflow-hidden group" style={{ background: 'linear-gradient(135deg, #040d1a, #071428)', border: '1px solid rgba(27,147,164,0.4)', boxShadow: '0 0 40px rgba(27,147,164,0.12)' }} data-testid="product-mando">
               <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full text-xs font-bold bg-[#1B93A4] text-white flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" /> LIVE EN PRODUCCIÓN
               </div>
               <img src={ASSETS.logoMando} alt="MANDO by Leapifyes" className="w-[110px] h-[110px] rounded-full object-cover mb-6" loading="lazy" />
               <h3 className="text-2xl md:text-3xl font-black text-[#F0F4FF] mb-2">MANDO by Leapifyes</h3>
-              <p className="text-[#1B93A4] font-semibold mb-4">ERP completo para reformas, construcción y mantenimiento</p>
+              <p className="text-[#1B93A4] font-semibold mb-4">ERP completo para reformas, construction y mantenimiento</p>
               <p className="text-[#8892A4] mb-6">El trabajo ya es duro. La gestión no debería serlo. MANDO centraliza presupuestos, obras, facturas, incidencias y equipo en un solo panel. Ahorro medio demostrado: 3–4 horas diarias por usuario.</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {['React 19', 'FastAPI', 'MongoDB', 'Railway', 'Vercel'].map(t => (
@@ -327,8 +337,6 @@ const Home = () => {
                 </Button>
               </a>
             </motion.div>
-
-            {/* TRÉBOL */}
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }} className="relative p-8 md:p-10 rounded-2xl overflow-hidden group" style={{ background: 'linear-gradient(135deg, #030f08, #051a0c)', border: '1px solid rgba(16,185,129,0.4)', boxShadow: '0 0 40px rgba(16,185,129,0.10)' }} data-testid="product-trebol">
               <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full text-xs font-bold bg-[#10b981] text-white flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" /> BETA ACTIVA
@@ -357,7 +365,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══════════ SECCIÓN 6: SECTORES ══════════ */}
+      {/* SECTORES */}
       <section className="section-padding relative" data-testid="sectors-section">
         <div className="container-main">
           <SectionHeader label="Sectores donde operamos" title="Conocemos tu sector." gradient="Hablamos tu idioma." />
@@ -377,7 +385,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══════════ SECCIÓN 7: CASOS DE ÉXITO ══════════ */}
+      {/* CASOS */}
       <section className="section-padding relative border-t border-white/5" data-testid="cases-section">
         <div className="container-main">
           <SectionHeader label="Resultados reales, negocios reales" title="No prometemos." gradient="Demostramos." />
@@ -398,7 +406,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══════════ SECCIÓN 8: MÉTODO LEAPIFYES ══════════ */}
+      {/* MÉTODO */}
       <section className="section-padding relative" data-testid="method-section">
         <div className="container-main">
           <SectionHeader label="El método Leapifyes" title="Hacemos fácil lo importante." gradient="Tecnología que entiendes, resultados que ves." />
@@ -417,26 +425,17 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══════════ SECCIÓN 9: EL EQUIPO ══════════ */}
+      {/* EQUIPO */}
       <section className="section-padding relative border-t border-white/5" data-testid="founder-section">
         <div className="container-main">
           <SectionHeader label="El equipo detrás de Leapifyes" title="Personas reales." gradient="Compromiso real." />
           <div className="max-w-3xl mx-auto text-center mb-12">
             <p className="text-lg text-[#8892A4]">En Leapifyes combinamos experiencia en ventas, CRM y transformación digital con tecnología de primer nivel. Somos un equipo que acompaña a pymes y autónomos desde el diagnóstico hasta los resultados medibles.</p>
           </div>
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="glass-card overflow-hidden max-w-4xl mx-auto flex flex-col md:flex-row">
-            {/* Foto rectangular */}
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass-card overflow-hidden max-w-4xl mx-auto flex flex-col md:flex-row">
             <div className="flex-shrink-0 w-full md:w-64 lg:w-72">
-              <img
-                src={ASSETS.fotoRicardo}
-                alt="Ricardo Serrano, Fundador y CEO de Leapifyes, Barcelona"
-                className="w-full h-64 md:h-full object-cover object-center"
-                style={{ minHeight: 320 }}
-                loading="lazy"
-              />
+              <img src={ASSETS.fotoRicardo} alt="Ricardo Serrano, Fundador y CEO de Leapifyes, Barcelona" className="w-full h-64 md:h-full object-cover object-center" style={{ minHeight: 320 }} loading="lazy" />
             </div>
-            {/* Texto */}
             <div className="p-8 flex flex-col justify-center gap-4">
               <div>
                 <h3 className="text-2xl font-black text-[#F0F4FF] mb-1">Ricardo Serrano</h3>
@@ -445,8 +444,7 @@ const Home = () => {
                   Detrás de Leapifyes hay más de una década de trabajo directo con negocios reales. La obsesión: unir lo digital con lo humano y hacer la tecnología accesible, útil y rentable para cada pequeño empresario en España.
                 </p>
               </div>
-              <a href="https://www.linkedin.com/in/ricardoserrano" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-[#8892A4] hover:text-[#F0F4FF] transition-colors text-sm w-fit">
+              <a href="https://www.linkedin.com/in/ricardoserrano" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-[#8892A4] hover:text-[#F0F4FF] transition-colors text-sm w-fit">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
                 LinkedIn
               </a>
@@ -455,7 +453,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══════════ SECCIÓN 10: VALORES ══════════ */}
+      {/* VALORES */}
       <section className="section-padding relative" data-testid="values-section">
         <div className="container-main">
           <SectionHeader label="Lo que nos define" title="" gradient="" />
@@ -473,7 +471,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══════════ SECCIÓN 11: PLANES / INVERSIÓN ══════════ */}
+      {/* PLANES */}
       <section className="section-padding relative border-t border-white/5" data-testid="plans-section">
         <div className="container-main">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="text-center mb-4">
@@ -485,7 +483,6 @@ const Home = () => {
               Cada proyecto se estructura según tus objetivos — con continuidad mensual o por hitos de entrega, siempre con estrategia, seguimiento y resultados medibles.
             </motion.p>
           </motion.div>
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {PLANS.map((plan, index) => (
               <motion.div key={plan.name} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className={`glass-card p-6 relative flex flex-col ${plan.highlighted ? 'border-[#1B93A4] ring-1 ring-[#1B93A4]' : ''}`}>
@@ -518,11 +515,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══════════ SECCIÓN 12: CTA FINAL ══════════ */}
+      {/* CTA FINAL */}
       <section className="section-padding relative overflow-hidden" data-testid="cta-section">
         <div className="absolute inset-0 bg-gradient-to-br from-[#1B93A4]/20 via-[#3B82F6]/10 to-[#D946EF]/20" style={{ animation: 'pulse 4s ease-in-out infinite' }} />
         <div className="mesh-gradient opacity-30" />
-
         <div className="container-main relative z-10">
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-black text-[#F0F4FF] mb-4" style={{ fontFamily: 'Manrope, sans-serif' }}>
@@ -532,7 +528,6 @@ const Home = () => {
             <p className="text-lg text-[#8892A4] mb-10 max-w-2xl mx-auto">
               Agenda una llamada estratégica gratuita de 30 minutos. Sin compromisos. Solo claridad sobre dónde está tu negocio y qué necesita para crecer.
             </p>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <a href="https://crm.zoho.eu/bookings/Calendariodelaweb" target="_blank" rel="noopener noreferrer" onClick={trackAgendarDemo}>
                 <Button className="btn-gradient text-lg px-10 py-7 font-semibold w-full sm:w-auto" data-testid="cta-final">
@@ -545,7 +540,6 @@ const Home = () => {
                 </Button>
               </a>
             </div>
-
             <div className="flex flex-wrap justify-center gap-8 text-[#8892A4]">
               <a href="mailto:info@leapifyes.com" className="flex items-center gap-2 hover:text-[#1B93A4] transition-colors"><Mail className="w-5 h-5" />info@leapifyes.com</a>
               <a href="tel:+34694214849" className="flex items-center gap-2 hover:text-[#1B93A4] transition-colors"><Phone className="w-5 h-5" />+34 694 214 849</a>
