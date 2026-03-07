@@ -144,17 +144,50 @@ export const TRANSLATIONS = {
         { client: 'ReformaBCN', impact: '+40% ventas', desc: 'Digitalización de presupuestos y seguimiento.' },
         { client: 'ClinicaDental', impact: '-5h/semana', desc: 'Automatización de citas y recordatorios.' }
       ],
-      method: [
-        { title: 'Escucha y diagnóstico', desc: 'Entendemos tu realidad.' },
-        { title: 'Plan de 90 días', desc: 'Roadmap accionable.' },
-        { title: 'Implantación guiada', desc: 'Sin fricción tecnológica.' },
-        { title: 'Formación y adopción', desc: 'Tu equipo al mando.' },
-        { title: 'KPIs y mejora continua', desc: 'Resultados medibles.' }
-      ]
+      method: []
+    },
+    footer: {
+      brand_sub: 'Digitalizamos pymes y autónomos en España.',
+      col_services: 'Servicios',
+      col_products: 'Productos',
+      col_company: 'Empresa',
+      col_legal: 'Legal',
+      manage_cookies: 'Gestionar cookies',
+      bottom_text: 'Todos los derechos reservados.',
+      made_with: 'Hecho con ❤️ en Barcelona',
+      location: 'Barcelona, España'
+    }
+  },
+  ca: {
+    nav: {
+      productos: 'Productes', servicios: 'Serveis', sectores: 'Sectors',
+      casos: 'Casos', metodo: 'Mètode', empresa: 'Empresa', blog: 'Blog',
+      diagnostico: 'Diagnòstic', portal: 'Portal', agendar: 'Agendar diagnòstic'
+    },
+    home: {
+      hero_tag: 'Amb Leapifyes no fas un pas, fas un salt',
+      hero_title_1: 'Transformem', hero_title_2: 'negocis.',
+      hero_title_3: 'Construïm el', hero_title_4: 'futur.',
+      hero_sub: 'Digitalitzem pimes i autònoms a Espanya — amb estratègia, IA i sistemes a mida.',
+      hero_tag_bcn: 'Barcelona, Espanya', hero_tag_ia: 'Agents IA', hero_tag_sis: 'Sistemes a mida',
+      cta_agendar: 'Agendar diagnòstic gratuït', cta_servicios: 'Veure els nostres serveis',
+      sol_td: 'Transformació Digital', sol_td_sub: 'Processos, CRM, automatització intel·ligent.',
+      sol_ia: 'Agents IA 24/7', sol_ia_sub: 'Atén, qualifica i ven sense intervenció.',
+      sol_sis: 'Sistemes a Mida', sol_sis_sub: 'Web, ERP, apps pròpies i SaaS escalable.'
+    },
+    footer: {
+      brand_sub: 'Digitalitzem pimes i autònoms a Espanya.',
+      col_services: 'Serveis',
+      col_products: 'Productes',
+      col_company: 'Empresa',
+      col_legal: 'Legal',
+      manage_cookies: 'Gestionar galetes',
+      bottom_text: 'Tots els drets reservats.',
+      made_with: 'Fet amb ❤️ a Barcelona',
+      location: 'Barcelona, Espanya'
     }
   },
   en: {
-    // English mapping follows same structure (omitted for brevity in this step but I will maintain it)
     nav: {
       productos: 'Products', servicios: 'Services', sectores: 'Sectors',
       casos: 'Cases', metodo: 'Method', empresa: 'Company', blog: 'Blog',
@@ -295,6 +328,107 @@ export const TRANSLATIONS = {
       ],
       cases: [],
       method: []
+    },
+    footer: {
+      brand_sub: 'We digitalize SMEs and freelancers in Spain.',
+      col_services: 'Services',
+      col_products: 'Products',
+      col_company: 'Company',
+      col_legal: 'Legal',
+      manage_cookies: 'Manage cookies',
+      bottom_text: 'All rights reserved.',
+      made_with: 'Made with ❤️ in Barcelona',
+      location: 'Barcelona, Spain'
+    }
+  },
+  fr: {
+    nav: {
+      productos: 'Produits', servicios: 'Services', sectores: 'Secteurs',
+      casos: 'Cas', metodo: 'Méthode', empresa: 'Entreprise', blog: 'Blog',
+      diagnostico: 'Diagnostic', portal: 'Portail', agendar: 'Prendre RDV'
+    },
+    footer: {
+      brand_sub: 'Nous digitalisons les PME et indépendants en Espagne.',
+      col_services: 'Services',
+      col_products: 'Produits',
+      col_company: 'Entreprise',
+      col_legal: 'Légal',
+      manage_cookies: 'Gérer les cookies',
+      bottom_text: 'Tous droits réservés.',
+      made_with: 'Fait avec ❤️ à Barcelone',
+      location: 'Barcelone, Espagne'
+    }
+  },
+  pt: {
+    nav: {
+      productos: 'Produtos', servicios: 'Serviços', sectores: 'Setores',
+      casos: 'Casos', metodo: 'Método', empresa: 'Empresa', blog: 'Blog',
+      diagnostico: 'Diagnóstico', portal: 'Portal', agendar: 'Agendar diagnóstico'
+    },
+    footer: {
+      brand_sub: 'Digitalizamos PMEs e freelancers em Espanha.',
+      col_services: 'Serviços',
+      col_products: 'Produtos',
+      col_company: 'Empresa',
+      col_legal: 'Legal',
+      manage_cookies: 'Gerir cookies',
+      bottom_text: 'Todos os direitos reservados.',
+      made_with: 'Feito com ❤️ em Barcelona',
+      location: 'Barcelona, Espanha'
+    }
+  },
+  it: {
+    nav: {
+      productos: 'Prodotti', servicios: 'Servizi', sectores: 'Settori',
+      casos: 'Casi', metodo: 'Metodo', empresa: 'Azienda', blog: 'Blog',
+      diagnostico: 'Diagnosi', portal: 'Portale', agendar: 'Prenota diagnosi'
+    },
+    footer: {
+      brand_sub: 'Digitalizziamo PMI e freelance in Spagna.',
+      col_services: 'Servizi',
+      col_products: 'Prodotti',
+      col_company: 'Azienda',
+      col_legal: 'Legale',
+      manage_cookies: 'Gestisci cookie',
+      bottom_text: 'Tutti i diritti riservati.',
+      made_with: 'Fatto con ❤️ a Barcellona',
+      location: 'Barcellona, Spagna'
+    }
+  },
+  de: {
+    nav: {
+      productos: 'Produkte', servicios: 'Dienste', sectores: 'Sektoren',
+      casos: 'Fälle', metodo: 'Methode', empresa: 'Unternehmen', blog: 'Blog',
+      diagnostico: 'Diagnose', portal: 'Portal', agendar: 'Termin vereinbaren'
+    },
+    footer: {
+      brand_sub: 'Wir digitalisieren KMU und Freiberufler in Spanien.',
+      col_services: 'Dienste',
+      col_products: 'Produkte',
+      col_company: 'Unternehmen',
+      col_legal: 'Rechtliches',
+      manage_cookies: 'Cookies verwalten',
+      bottom_text: 'Alle Rechte vorbehalten.',
+      made_with: 'Mit ❤️ in Barcelona gemacht',
+      location: 'Barcelona, Spanien'
+    }
+  },
+  nl: {
+    nav: {
+      productos: 'Producten', servicios: 'Diensten', sectores: 'Sectoren',
+      casos: 'Cases', metodo: 'Methode', empresa: 'Bedrijf', blog: 'Blog',
+      diagnostico: 'Diagnose', portal: 'Portal', agendar: 'Afspraak maken'
+    },
+    footer: {
+      brand_sub: 'Wij digitaliseren MKB en freelancers in Spanje.',
+      col_services: 'Diensten',
+      col_products: 'Producten',
+      col_company: 'Bedrijf',
+      col_legal: 'Juridisch',
+      manage_cookies: 'Cookies beheren',
+      bottom_text: 'Alle rechten voorbehouden.',
+      made_with: 'Gemaakt met ❤️ in Barcelona',
+      location: 'Barcelona, Spanje'
     }
   }
 };
