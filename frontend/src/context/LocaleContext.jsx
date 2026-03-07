@@ -156,6 +156,23 @@ export const TRANSLATIONS = {
       bottom_text: 'Todos los derechos reservados.',
       made_with: 'Hecho con ❤️ en Barcelona',
       location: 'Barcelona, España'
+    },
+    cookies: {
+      title: 'Usamos cookies',
+      description: 'Utilizamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico web.',
+      accept_all: 'Aceptar todas',
+      reject: 'Rechazar',
+      settings: 'Configurar',
+      settings_title: 'Configuración de cookies',
+      tech_title: 'Cookies técnicas',
+      tech_desc: 'Necesarias para el funcionamiento del sitio. No se pueden desactivar.',
+      ana_title: 'Cookies analíticas',
+      ana_desc: 'Nos ayudan a entender cómo usas el sitio (Google Analytics).',
+      mark_title: 'Cookies de marketing',
+      mark_desc: 'Permiten mostrarte publicidad relevante.',
+      save_settings: 'Guardar preferencias',
+      cancel: 'Cancelar',
+      manage_cookies: 'Gestionar cookies'
     }
   },
   ca: {
@@ -185,7 +202,8 @@ export const TRANSLATIONS = {
       bottom_text: 'Tots els drets reservats.',
       made_with: 'Fet amb ❤️ a Barcelona',
       location: 'Barcelona, Espanya'
-    }
+    },
+    cookies: { title: 'Usem galetes', description: 'Utilitzem galetes pròpies i de tercers per millorar la teva experiència i analitzar el trànsit web.', accept_all: 'Acceptar totes', reject: 'Rebutjar', settings: 'Configurar', settings_title: 'Configuració de galetes', tech_title: 'Galetes tècniques', tech_desc: 'Necessàries per al funcionament del lloc. No es poden desactivar.', ana_title: 'Galetes analítiques', ana_desc: "Ens ajuden a entendre com uses el lloc (Google Analytics).", mark_title: 'Galetes de màrqueting', mark_desc: 'Permeten mostrar-te publicitat rellevant.', save_settings: 'Desar preferències', cancel: 'Cancel·lar', manage_cookies: 'Gestionar galetes' }
   },
   en: {
     nav: {
@@ -339,7 +357,8 @@ export const TRANSLATIONS = {
       bottom_text: 'All rights reserved.',
       made_with: 'Made with ❤️ in Barcelona',
       location: 'Barcelona, Spain'
-    }
+    },
+    cookies: { title: 'We use cookies', description: 'We use our own and third-party cookies to improve your experience and analyze web traffic.', accept_all: 'Accept all', reject: 'Reject', settings: 'Settings', settings_title: 'Cookie settings', tech_title: 'Technical cookies', tech_desc: 'Required for the site to work. Cannot be disabled.', ana_title: 'Analytics cookies', ana_desc: 'Help us understand how you use the site (Google Analytics).', mark_title: 'Marketing cookies', mark_desc: 'Allow us to show you relevant ads.', save_settings: 'Save preferences', cancel: 'Cancel', manage_cookies: 'Manage cookies' }
   },
   fr: {
     nav: {
@@ -357,7 +376,8 @@ export const TRANSLATIONS = {
       bottom_text: 'Tous droits réservés.',
       made_with: 'Fait avec ❤️ à Barcelone',
       location: 'Barcelone, Espagne'
-    }
+    },
+    cookies: { title: 'Nous utilisons des cookies', description: 'Nous utilisons des cookies propres et tiers pour améliorer votre expérience et analyser le trafic.', accept_all: 'Tout accepter', reject: 'Refuser', settings: 'Paramètres', settings_title: 'Paramètres des cookies', tech_title: 'Cookies techniques', tech_desc: 'Nécessaires au fonctionnement du site. Ne peuvent pas être désactivés.', ana_title: 'Cookies analytiques', ana_desc: 'Nous aident à comprendre comment vous utilisez le site.', mark_title: 'Cookies marketing', mark_desc: 'Permettent de vous montrer des publicités pertinentes.', save_settings: 'Enregistrer les préférences', cancel: 'Annuler', manage_cookies: 'Gérer les cookies' }
   },
   pt: {
     nav: {
@@ -375,7 +395,8 @@ export const TRANSLATIONS = {
       bottom_text: 'Todos os direitos reservados.',
       made_with: 'Feito com ❤️ em Barcelona',
       location: 'Barcelona, Espanha'
-    }
+    },
+    cookies: { title: 'Usamos cookies', description: 'Usamos cookies próprios e de terceiros para melhorar a sua experiência e analisar o tráfego web.', accept_all: 'Aceitar todos', reject: 'Rejeitar', settings: 'Configurar', settings_title: 'Configurações de cookies', tech_title: 'Cookies técnicos', tech_desc: 'Necessários para o funcionamento do site. Não podem ser desativados.', ana_title: 'Cookies analíticos', ana_desc: 'Ajudam-nos a perceber como usa o site.', mark_title: 'Cookies de marketing', mark_desc: 'Permitem mostrar-lhe publicidad relevante.', save_settings: 'Guardar preferencias', cancel: 'Cancelar', manage_cookies: 'Gerir cookies' }
   },
   it: {
     nav: {
@@ -393,7 +414,8 @@ export const TRANSLATIONS = {
       bottom_text: 'Tutti i diritti riservati.',
       made_with: 'Fatto con ❤️ a Barcellona',
       location: 'Barcellona, Spagna'
-    }
+    },
+    cookies: { title: 'Usiamo i cookie', description: 'Utilizziamo cookie propri e di terze parti per migliorare la tua esperienza e analizzare il traffico web.', accept_all: 'Accetta tutti', reject: 'Rifiuta', settings: 'Impostazioni', settings_title: 'Impostazioni cookie', tech_title: 'Cookie tecnici', tech_desc: 'Necessari per il fonctionnemento del sito. Non possono essere disattivati.', ana_title: 'Cookie analitici', ana_desc: 'Ci aiutano a capire come usi il sito.', mark_title: 'Cookie di marketing', mark_desc: 'Consentono di mostrarti pubblicità pertinente.', save_settings: 'Salva preferenze', cancel: 'Annulla', manage_cookies: 'Gestisci cookie' }
   },
   de: {
     nav: {
@@ -411,7 +433,8 @@ export const TRANSLATIONS = {
       bottom_text: 'Alle Rechte vorbehalten.',
       made_with: 'Mit ❤️ in Barcelona gemacht',
       location: 'Barcelona, Spanien'
-    }
+    },
+    cookies: { title: 'Wir verwenden Cookies', description: 'Wir verwenden eigene und Drittanbieter-Cookies, um Ihre Erfahrung zu verbessern und den Web-Traffic zu analysieren.', accept_all: 'Alle akzeptieren', reject: 'Ablehnen', settings: 'Einstellungen', settings_title: 'Cookie-Einstellungen', tech_title: 'Technische Cookies', tech_desc: 'Für den Betrieb der Website erforderlich. Können nicht deaktiviert werden.', ana_title: 'Analytische Cookies', ana_desc: 'Helfen uns zu verstehen, wie Sie die Website nutzen.', mark_title: 'Marketing-Cookies', mark_desc: 'Ermöglichen das Anzeigen relevanter Werbung.', save_settings: 'Einstellungen speichern', cancel: 'Abbrechen', manage_cookies: 'Cookies verwalten' }
   },
   nl: {
     nav: {
@@ -429,7 +452,8 @@ export const TRANSLATIONS = {
       bottom_text: 'Alle rechten voorbehouden.',
       made_with: 'Gemaakt met ❤️ in Barcelona',
       location: 'Barcelona, Spanje'
-    }
+    },
+    cookies: { title: 'We gebruiken cookies', description: 'We gebruiken eigen en cookies van derden om uw ervaring te mejorar uw ervaring te verbeteren en webverkeer te analyseren.', accept_all: 'Alles accepteren', reject: 'Weigeren', settings: 'Instellingen', settings_title: 'Cookie-instellingen', tech_title: 'Technische cookies', tech_desc: 'Vereist voor het functioneren van de site. Kunnen niet worden uitgeschakeld.', ana_title: 'Analytische cookies', ana_desc: 'Helpen ons begrijpen hoe u de site gebruikt.', mark_title: 'Marketing cookies', mark_desc: 'Maken het mogelijk relevante advertenties te tonen.', save_settings: 'Voorkeuren opslaan', cancel: 'Annuleren', manage_cookies: 'Cookies beheren' }
   }
 };
 
