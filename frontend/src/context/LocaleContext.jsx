@@ -68,6 +68,27 @@ export const TRANSLATIONS = {
       cta_sub: 'Tu negocio merece el salto. Nosotros te acompañamos.',
       cta_desc: 'Agenda una llamada estratégica gratuita de 30 minutos. Sin compromisos.'
     },
+    empresa: {
+      seo_title: 'Sobre Nosotros | Leapifyes — Transformación Digital Barcelona',
+      seo_desc: 'Leapifyes nació para resolver un problema real: hacer la transformación digital accesible para pymes y autónomos en España.',
+      hero_tag: 'Sobre Nosotros',
+      hero_title: 'Somos tu socio digital',
+      hero_sub: 'Con Leapifyes, lo digital deja de ser un problema y se convierte en tu ventaja.',
+      hist_title: 'Nuestra Historia',
+      hist_p1: 'Leapifyes nació para resolver un problema real: miles de pymes, autónomos y emprendedores que se sienten fuera de lugar en lo digital.',
+      hist_p2: 'Creemos que la transformación digital no puede ser un lujo: debe ser simple y cercana.',
+      vision_title: 'Visión', vision_text: 'Que ninguna pyme ni autónomo quede atrás en lo digital.',
+      mision_title: 'Misión', mision_text: 'Simplificamos lo digital: solo lo necesario, mejores resultados.',
+      prop_title: 'Propósito', prop_text: 'Democratizamos la digitalización para todos los negocios.',
+      founder_title: 'Nuestro Fundador',
+      founder_sub: 'Transformador digital con visión humana.',
+      team_title: 'Nuestro Equipo',
+      team_sub: 'Un equipo multidisciplinar que combina tecnología y empatía.',
+      bcn_title: 'Barcelona, nuestra casa',
+      bcn_sub: 'Conocemos el tejido empresarial catalán, sus retos y oportunidades.',
+      cta_title: '¿Conectamos?',
+      cta_sub: 'Cuéntanos qué tienes en mente.'
+    },
     data: {
       services: [
         {
@@ -270,7 +291,28 @@ export const TRANSLATIONS = {
 
       cta_title: 'Ready to take the leap?',
       cta_sub: 'Your business deserves the leap. We accompany you.',
-      cta_desc: 'Book a free call.'
+      cta_desc: 'Book a free 30-minute strategic call. No commitments.'
+    },
+    empresa: {
+      seo_title: 'About Us | Leapifyes — Digital Transformation Barcelona',
+      seo_desc: 'Leapifyes was born to solve a real problem: making digital transformation accessible for SMEs and freelancers in Spain.',
+      hero_tag: 'About Us',
+      hero_title: 'We are your digital partner',
+      hero_sub: 'With Leapifyes, digital stops being a problem and becomes your advantage.',
+      hist_title: 'Our History',
+      hist_p1: 'Leapifyes was born to solve a real problem: thousands of SMEs and freelancers who feel out of place in digital.',
+      hist_p2: 'We believe digital transformation cannot be a luxury: it must be simple and close.',
+      vision_title: 'Vision', vision_text: 'That no SME or freelancer is left behind in digital.',
+      mision_title: 'Mission', mision_text: 'We simplify digital: only what is necessary, better results.',
+      prop_title: 'Purpose', prop_text: 'We democratize digitalization for all businesses.',
+      founder_title: 'Our Founder',
+      founder_sub: 'Digital transformer with a human vision.',
+      team_title: 'Our Team',
+      team_sub: 'A multidisciplinary team combining technology and empathy.',
+      bcn_title: 'Barcelona, our home',
+      bcn_sub: 'We know the Catalan business fabric, its challenges and opportunities.',
+      cta_title: 'Connect?',
+      cta_sub: 'Tell us what you have in mind.'
     },
     data: {
       services: [
