@@ -95,7 +95,7 @@ const ServicioDetalle = () => {
                 <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                     <Link to="/" className="flex items-center gap-2.5">
                         <div className="w-8 h-8 rounded-full overflow-hidden border border-[#1B93A4]/30">
-                            <img src={ASSETS.logoLeapifyes} alt="L" className="w-full h-full object-cover mix-blend-luminosity" />
+                            <img src={ASSETS.logoLeapifyes} alt="L" loading="lazy" className="w-full h-full object-cover mix-blend-luminosity" />
                         </div>
                         <span className="font-black tracking-tight text-xl">LEAPIFYES</span>
                     </Link>

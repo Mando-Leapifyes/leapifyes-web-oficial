@@ -90,7 +90,7 @@ const Navbar = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
               <div style={{ width: 38, height: 38, borderRadius: '50%', padding: 2, background: 'rgba(27,147,164,0.15)', border: '1.5px solid rgba(27,147,164,0.5)', flexShrink: 0 }}>
-                <img src={ASSETS.logoLeapifyes} alt="Leapifyes" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', mixBlendMode: 'luminosity' }} />
+                <img src={ASSETS.logoLeapifyes} alt="Leapifyes" loading="eager" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', mixBlendMode: 'luminosity' }} />
               </div>
               <span className="text-lg font-black tracking-tight gradient-text">
                 LEAPIFYES
@@ -127,7 +127,7 @@ const Navbar = () => {
                           rel="noopener noreferrer"
                           className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group"
                         >
-                          <img src={product.logo} alt={product.name} className={`w-10 h-10 object-cover flex-shrink-0 ${product.logoClass}`} />
+                          <img src={product.logo} alt={product.name} loading="lazy" className={`w-10 h-10 object-cover flex-shrink-0 ${product.logoClass}`} />
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
                               <span className="font-semibold text-[#F0F4FF] group-hover:text-[#1B93A4] transition-colors text-sm">
@@ -258,7 +258,7 @@ const Navbar = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 py-3 border-b border-white/5"
                   >
-                    <img src={product.logo} alt={product.name} className={`w-6 h-6 object-cover ${product.logoClass}`} />
+                    <img src={product.logo} alt={product.name} loading="lazy" className={`w-6 h-6 object-cover ${product.logoClass}`} />
                     <span className="text-[#F0F4FF] font-medium flex-1">{product.name}</span>
                     <span className={`px-2 py-0.5 rounded-full text-xs font-bold text-white ${product.statusColor}`}>
                       {product.status}

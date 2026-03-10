@@ -68,7 +68,7 @@ const PortalLogin = () => {
       >
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
-            <img src="/logo.png" alt="Leapifyes" className="h-10 w-auto brightness-0 invert" />
+            <img src="/logo.png" alt="Leapifyes" loading="lazy" className="h-10 w-auto brightness-0 invert" />
           </Link>
           <h1 className="text-3xl font-bold text-white mb-2">
             {isLogin ? 'Portal de Clientes' : 'Crear Cuenta'}

@@ -48,7 +48,7 @@ const AdminLayout = () => {
             <div className="flex flex-col h-full">
                 {/* Sidebar Header */}
                 <div className="flex h-16 items-center flex-shrink-0 px-4 border-b border-slate-800">
-                    <img src="/logo.png" alt="Leapifyes" className="h-6 w-auto brightness-0 invert" />
+                    <img src="/logo.png" alt="Leapifyes" loading="lazy" className="h-6 w-auto brightness-0 invert" />
                     <span className="ml-2 text-xs font-semibold px-2 py-1 rounded bg-[#D946EF]/20 text-[#D946EF]">
                         {user?.role === 'super_admin' ? 'SUPER ADMIN' : 'ADMIN'}
                     </span>
