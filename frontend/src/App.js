@@ -20,24 +20,24 @@ function ScrollToTop() {
 
 // Marketing Pages - Loaded eagerly for SEO
 import Home from "./pages/Home";
-const SolucionesHub = lazy(() => import("./pages/soluciones/SolucionesHub"));
-const ServiceDetail = lazy(() => import("./pages/soluciones/ServiceDetail"));
-const SectoresHub = lazy(() => import("./pages/sectores/SectoresHub"));
-const SectorDetail = lazy(() => import("./pages/sectores/SectorDetail"));
-const Casos = lazy(() => import("./pages/Casos"));
-const Metodo = lazy(() => import("./pages/Metodo"));
-const Empresa = lazy(() => import("./pages/Empresa"));
-const Recursos = lazy(() => import("./pages/Recursos"));
-const Contacto = lazy(() => import("./pages/Contacto"));
-const Barcelona = lazy(() => import("./pages/Barcelona"));
-const Cataluna = lazy(() => import("./pages/Cataluna"));
-const DiagnosticoPage = lazy(() => import("./pages/DiagnosticoPage"));
-const ServicioDetalle = lazy(() => import("./pages/ServicioDetalle"));
+import SolucionesHub from "./pages/soluciones/SolucionesHub";
+import ServiceDetail from "./pages/soluciones/ServiceDetail";
+import SectoresHub from "./pages/sectores/SectoresHub";
+import SectorDetail from "./pages/sectores/SectorDetail";
+import Casos from "./pages/Casos";
+import Metodo from "./pages/Metodo";
+import Empresa from "./pages/Empresa";
+import Recursos from "./pages/Recursos";
+import Contacto from "./pages/Contacto";
+import Barcelona from "./pages/Barcelona";
+import Cataluna from "./pages/Cataluna";
+import DiagnosticoPage from "./pages/DiagnosticoPage";
+import ServicioDetalle from "./pages/ServicioDetalle";
 
 // Legal Pages - Loaded eagerly for SEO
-const Privacidad = lazy(() => import("./pages/legal/Privacidad"));
-const Cookies = lazy(() => import("./pages/legal/Cookies"));
-const AvisoLegal = lazy(() => import("./pages/legal/AvisoLegal"));
+import Privacidad from "./pages/legal/Privacidad";
+import Cookies from "./pages/legal/Cookies";
+import AvisoLegal from "./pages/legal/AvisoLegal";
 
 // App Pages - Lazy loaded (not SEO critical)
 const AppDashboard = lazy(() => import("./pages/app/AppDashboard"));
