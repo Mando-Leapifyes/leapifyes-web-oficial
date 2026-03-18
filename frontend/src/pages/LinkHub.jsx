@@ -1,210 +1,99 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Globe, 
-  Rocket, 
-  Lock, 
-  Bot, 
-  Coins, 
-  Calendar,
-  ArrowRight,
-  ExternalLink
-} from 'lucide-react';
-import { ASSETS } from '@/lib/assets';
 
 const LinkHub = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { type: 'spring', stiffness: 100 }
-    }
-  };
-
   const links = [
     {
-      id: 'main-web',
-      title: 'Leapifyes',
-      subtitle: 'Transformación Digital con propósito',
-      url: 'https://www.leapifyes.com',
-      icon: <Globe className="w-5 h-5" />,
-      primary: true,
-      category: 'CORPORATIVO'
+      title: 'LEAPIFYES',
+      url: 'https://www.leapifyes.com/',
+      logo: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1772800285/logo_de_leapifyes_circular_elr6v1.jpg',
+      accent: '#1B93A4' // Leapifyes Turquoise
     },
     {
-      id: 'mando-web',
-      title: 'Ver MANDO',
-      subtitle: 'ERP para reformas y construcción',
-      url: 'https://mando.leapifyes.com',
-      icon: <Rocket className="w-5 h-5" />,
-      category: 'PRODUCTO CORE'
+      title: 'MANDO',
+      url: 'https://mando.leapifyes.com/',
+      logo: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1770925218/MANDO_by_Leapifyes_tajoao.png',
+      accent: '#3B82F6' // Blue
     },
     {
-      id: 'mando-app',
-      title: 'Acceder a MANDO',
-      subtitle: 'Gestión inteligente de obras',
-      url: 'https://appmando.leapifyes.com',
-      icon: <Lock className="w-5 h-5" />,
-      category: 'PRODUCTO CORE'
+      title: 'ACCEDER A MANDO',
+      url: 'https://appmando.leapifyes.com/login',
+      logo: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1770925218/MANDO_by_Leapifyes_tajoao.png',
+      accent: '#3B82F6'
     },
     {
-      id: 'ia-web',
-      title: 'Leapifyes IA',
-      subtitle: 'Agentes inteligentes para tu pyme',
+      title: 'TRÉBOL FINANCE',
+      url: 'https://trebolfinance.leapifyes.com/login',
+      logo: null,
+      accent: '#10b981' // Green
+    },
+    {
+      title: 'LEAPIFYES IA',
       url: 'https://ia.leapifyes.com',
-      icon: <Bot className="w-5 h-5" />,
-      category: 'INNOVACIÓN'
-    },
-    {
-      id: 'trebol-web',
-      title: 'Trébol Finance',
-      subtitle: 'Fintech personal con IA',
-      url: 'https://trebolfinance.leapifyes.com',
-      icon: <Coins className="w-5 h-5" />,
-      category: 'EXPANSIÓN'
-    },
-    {
-      id: 'booking',
-      title: 'Agendar asesoría',
-      subtitle: 'Hablemos de tu proyecto',
-      url: 'https://crm.zoho.eu/bookings/Calendariodelaweb',
-      icon: <Calendar className="w-5 h-5" />,
-      highlight: true,
-      category: 'CONVERSIÓN'
+      logo: null,
+      accent: '#D946EF' // Magenta
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#080B14] text-[#F0F4FF] overflow-x-hidden relative selection:bg-[#1B93A4]/30">
-      {/* Background Elements */}
-      <div className="fixed inset-0 grid-pattern opacity-[0.03] pointer-events-none" />
-      
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-lg pointer-events-none">
-        <div className="absolute top-[-10%] left-[-20%] w-[140%] h-[60%] bg-radial-gradient from-[#1B93A4]/20 via-transparent to-[#D946EF]/10 blur-[120px] rounded-full opacity-50" />
-      </div>
+    <div className="min-h-screen bg-[#080B14] text-white flex flex-col items-center px-6 py-24 font-sans selection:bg-[#1B93A4]/30 overflow-y-auto">
+      {/* Header — Estilo Apple Minimal */}
+      <header className="text-center mb-20 max-w-xs mx-auto">
+        <h1 className="text-2xl font-black tracking-[0.2em] text-white mb-2 uppercase">
+          LEAPIFYES
+        </h1>
+        <p className="text-[#8892A4] text-sm font-medium tracking-tight">
+          Accede a nuestro ecosistema
+        </p>
+        <p className="text-sm text-[#8892A4] text-center max-w-xs mx-auto mt-4">
+          Transformación digital sin complicaciones.<br />
+          Accede a nuestras herramientas y soluciones para organizar, automatizar y hacer crecer tu negocio desde un solo lugar.
+        </p>
+      </header>
 
-      <div className="container max-w-lg mx-auto px-6 pt-16 pb-24 relative z-10">
-        {/* Header */}
-        <motion.header 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
-          <div className="flex justify-center mb-6">
-            <div className="relative group p-1 rounded-full bg-gradient-to-tr from-[#1B93A4] via-[#F0F4FF]/20 to-[#D946EF] p-[2px]">
-              <div className="bg-[#080B14] rounded-full p-2">
+      {/* Lista de Botones — Unificada */}
+      <main className="w-full max-w-xs space-y-4">
+        {links.map((link, index) => (
+          <a
+            key={index}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center w-full p-4 rounded-2xl bg-white text-black transition-all duration-300 hover:opacity-90 hover:shadow-sm active:opacity-80 relative overflow-hidden cursor-pointer"
+          >
+            {/* Sutil acento de branding (Borde izquierdo) */}
+            <div 
+              className="absolute left-0 top-0 bottom-0 w-1 transition-transform" 
+              style={{ backgroundColor: link.accent }}
+            />
+            
+            {/* Logo (24px) */}
+            <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center ml-2 mr-3 pointer-events-none">
+              {link.logo ? (
                 <img 
-                  src={ASSETS.logoLeapifyes} 
-                  alt="Leapifyes" 
-                  className="w-16 h-16 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  src={link.logo} 
+                  alt={link.title} 
+                  className="w-full h-full object-contain" 
+                  style={{ maxHeight: '24px', maxWidth: '24px' }}
                 />
-              </div>
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border border-dashed border-[#1B93A4]/30"
-              />
+              ) : (
+                <div className="w-6 h-6 rounded-full bg-gray-200" />
+              )}
             </div>
-          </div>
-          <h1 className="text-3xl font-black tracking-tighter mb-2 gradient-text">
-            LEAPIFYES
-          </h1>
-          <p className="text-[#8892A4] font-medium text-sm">
-            Accede a tu ecosistema digital
-          </p>
-        </motion.header>
 
-        {/* Links Grid */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-4"
-        >
-          {links.map((link) => (
-            <motion.div key={link.id} variants={itemVariants}>
-              <a
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`
-                  group relative flex items-center p-4 rounded-2xl transition-all duration-500
-                  ${link.primary 
-                    ? 'btn-gradient shadow-lg shadow-[#1B93A4]/20 scale-[1.02] border-none' 
-                    : link.highlight
-                      ? 'glass-card-hover border-[#1B93A4]/30 hover:border-[#1B93A4]'
-                      : 'glass-card-hover border-white/10 hover:border-white/20'
-                  }
-                `}
-              >
-
-                <div className={`
-                  flex items-center justify-center w-12 h-12 rounded-xl mr-4 transition-transform group-hover:scale-110 duration-300
-                  ${link.primary ? 'bg-white/20' : 'bg-white/5'}
-                `}>
-                  {link.icon}
-                </div>
-                
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-bold tracking-widest text-[#8892A4] group-hover:text-[#1B93A4] transition-colors uppercase">
-                      {link.category}
-                    </span>
-                  </div>
-                  <h3 className="font-bold text-base tracking-tight truncate">
-                    {link.title}
-                  </h3>
-                  <p className={`text-xs truncate ${link.primary ? 'text-white/80' : 'text-[#8892A4]'}`}>
-                    {link.subtitle}
-                  </p>
-                </div>
-
-                <div className="ml-2">
-                  <ExternalLink className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${link.primary ? 'text-white' : 'text-[#1B93A4]'}`} />
-                </div>
-
-                {/* Subtle Glow Effect for non-primary */}
-                {!link.primary && (
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[0_0_20px_rgba(27,147,164,0.15)]" />
-                )}
-              </a>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Footer info */}
-        <motion.footer 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="mt-16 text-center"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/5">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
-            <span className="text-[10px] font-bold text-[#8892A4] tracking-widest uppercase">
-              Leapifyes Ecosystem Status: Operational
+            {/* Texto */}
+            <span className="font-bold text-sm tracking-tight">
+              {link.title}
             </span>
-          </div>
-          <p className="mt-8 text-[11px] text-[#525B70] font-medium">
-            &copy; {new Date().getFullYear()} Leapifyes. Todos los derechos reservados.
-          </p>
-        </motion.footer>
-      </div>
+          </a>
+        ))}
+      </main>
 
-      {/* Decorative Blur */}
-      <div className="fixed bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#080B14] to-transparent pointer-events-none" />
+      {/* Footer — Mucho aire */}
+      <footer className="mt-auto pt-32 pb-8 text-center">
+        <p className="text-[10px] text-[#525B70] font-bold tracking-[0.3em] uppercase opacity-40">
+          &copy; {new Date().getFullYear()} Leapifyes
+        </p>
+      </footer>
     </div>
   );
 };
