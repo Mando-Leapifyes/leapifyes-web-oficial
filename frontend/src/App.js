@@ -33,6 +33,8 @@ import Barcelona from "./pages/Barcelona";
 import Cataluna from "./pages/Cataluna";
 import DiagnosticoPage from "./pages/DiagnosticoPage";
 import ServicioDetalle from "./pages/ServicioDetalle";
+import LinkHub from "./pages/LinkHub";
+
 
 // Legal Pages - Loaded eagerly for SEO
 import Privacidad from "./pages/legal/Privacidad";
@@ -111,7 +113,12 @@ function App() {
                 <Route path="/legal/cookies" element={<Cookies />} />
                 <Route path="/legal/aviso-legal" element={<AvisoLegal />} />
 
+                {/* Link Hub / Access - Hidden routes */}
+                <Route path="/go" element={<LinkHub />} />
+                <Route path="/acceso" element={<LinkHub />} />
+
                 {/* App Routes - Lazy Loaded */}
+
                 <Route path="/app" element={
                   <Suspense fallback={<AppLoading />}>
                     <AppDashboard />
