@@ -1,4 +1,5 @@
 import React from 'react';
+import { Instagram, Linkedin, Facebook, MessageCircle, Phone } from 'lucide-react';
 
 const LinkHub = () => {
   const links = [
@@ -133,6 +134,67 @@ const LinkHub = () => {
             </a>
           ))}
         </main>
+
+        {/* Social Media & Contact Bar */}
+        <div className="w-full flex flex-col items-center mt-14 mb-4">
+          <span className="text-[10px] text-white/40 font-bold uppercase tracking-[0.3em] mb-4">
+            Síguenos y Contacta
+          </span>
+
+          <div className="flex justify-center items-center gap-8 py-4 px-10 bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl transition-all duration-300 hover:bg-white/5">
+            
+            {/* 1. Instagram */}
+            <a 
+              href="https://www.instagram.com/leapifyes?igsh=eHhndDhhcjJ3ZXNh" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white hover:scale-110 transition-all duration-200"
+              title="Instagram"
+            >
+              <Instagram className="w-6 h-6" />
+            </a>
+
+            {/* 2. LinkedIn */}
+            <a 
+              href="https://www.linkedin.com/company/leapifyes/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white hover:scale-110 transition-all duration-200"
+              title="LinkedIn"
+            >
+              <Linkedin className="w-6 h-6" />
+            </a>
+
+            {/* 3. WhatsApp */}
+            <a 
+              href="https://wa.me/34694214849" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white hover:scale-110 transition-all duration-200"
+              title="WhatsApp"
+            >
+              <MessageCircle className="w-6 h-6" />
+            </a>
+
+            {/* 4. Llamada */}
+            <a 
+              href="tel:+34694214849" 
+              className="text-white/70 hover:text-white hover:scale-110 transition-all duration-200"
+              title="Llamar ahora"
+            >
+              <Phone className="w-6 h-6" />
+            </a>
+
+            {/* 5. Facebook (Coming soon) */}
+            <div 
+              className="text-white/70 opacity-40 cursor-not-allowed"
+              title="Facebook (Próximamente)"
+            >
+              <Facebook className="w-6 h-6" />
+            </div>
+
+          </div>
+        </div>
 
         {/* Footer Section */}
         <footer className="mt-24 text-center space-y-4">
