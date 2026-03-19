@@ -64,11 +64,11 @@ const LinkHub = () => {
       <div className="relative z-10 w-full max-w-lg px-6 py-20 flex flex-col items-center">
         {/* Header Section */}
         <header className="text-center mb-16">
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center items-center mb-8">
             <img 
               src="https://res.cloudinary.com/dnjsjo6yx/image/upload/v1772800285/logo_de_leapifyes_circular_elr6v1.jpg" 
               alt="Leapifyes" 
-              className="w-20 h-20 rounded-full border border-white/20 shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+              className="w-20 h-20 rounded-full border border-white/20 shadow-[0_0_40px_rgba(255,255,255,0.1)] object-contain object-center scale-[0.92]"
             />
           </div>
           <h1 className="text-4xl font-black tracking-[0.3em] text-white mb-3 uppercase">
