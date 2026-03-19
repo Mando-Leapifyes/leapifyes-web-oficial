@@ -175,7 +175,7 @@ function App() {
                 </Route>
               </Routes>
             </BrowserRouter>
-            <CookieBanner />
+            {/* <CookieBanner /> */}
             <Toaster position="top-right" richColors />
           </div>
         </AuthProvider>

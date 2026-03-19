@@ -17,6 +17,7 @@ const defaultSettings = {
 const OPEN_COOKIE_SETTINGS_EVENT = "openCookieSettings";
 
 export default function CookieBanner() {
+  return null;
   const { t } = useLocale();
   const [isVisible, setIsVisible] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
