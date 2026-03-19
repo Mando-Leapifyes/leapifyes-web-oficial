@@ -6,12 +6,17 @@ const LinkHub = () => {
     {
       title: 'LEAPIFYES',
       subtitle: 'Transformación digital para tu negocio',
+      badge: '★ WEB OFICIAL',
+      badgeColor: 'bg-[#D4AF37]',
+      cta: 'Ver más →',
       url: 'https://www.leapifyes.com/',
       logo: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1772800285/logo_de_leapifyes_circular_elr6v1.jpg'
     },
     {
       title: 'MANDO',
       subtitle: 'Control total de tu empresa',
+      badge: 'WEB',
+      badgeColor: 'bg-[#1B93A4]',
       cta: 'Empieza ahora →',
       url: 'https://mando.leapifyes.com/',
       logo: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1770925218/MANDO_by_Leapifyes_tajoao.png',
@@ -20,18 +25,27 @@ const LinkHub = () => {
     {
       title: 'ACCEDER A MANDO',
       subtitle: 'Entra a tu panel',
+      badge: 'APP',
+      badgeColor: 'bg-[#3B82F6]',
+      cta: 'Abrir ahora →',
       url: 'https://appmando.leapifyes.com/login',
       logo: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1770925218/MANDO_by_Leapifyes_tajoao.png'
     },
     {
       title: 'TRÉBOL FINANCE',
       subtitle: 'Organiza tu dinero',
+      badge: 'APP €',
+      badgeColor: 'bg-[#10b981]',
+      cta: 'Entrar →',
       url: 'https://trebolfinance.leapifyes.com/login',
       logo: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1773875277/Captura_de_pantalla_2026-03-19_a_las_0.07.19_fkku2s.png'
     },
     {
       title: 'LEAPIFYES IA',
       subtitle: 'Automatiza tu negocio',
+      badge: 'IA',
+      badgeColor: 'bg-[#A855F7]',
+      cta: 'Descubrir →',
       url: 'https://ia.leapifyes.com',
       logo: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1773875048/ia-leapifyes_awkoh4.png'
     }
@@ -110,20 +124,18 @@ const LinkHub = () => {
                   <h3 className="text-white font-black text-xl tracking-tight leading-none">
                     {link.title}
                   </h3>
-                  {link.isPremium && (
-                    <span className="bg-[#1B93A4] text-black text-[9px] font-black px-1.5 py-0.5 rounded-md uppercase tracking-widest shadow-lg shadow-[#1B93A4]/30">
-                      Core
+                  {link.badge && (
+                    <span className={`${link.badgeColor} text-white text-[9px] font-black px-1.5 py-0.5 rounded-md uppercase tracking-widest shadow-md shadow-black/30`}>
+                      {link.badge}
                     </span>
                   )}
                 </div>
                 <p className="text-white/40 text-[11px] font-bold uppercase tracking-wider mb-2">
                   {link.subtitle}
                 </p>
-                {link.cta && (
-                  <span className="inline-block text-[#1B93A4] text-xs font-black tracking-tight group-hover:translate-x-1 transition-transform">
-                    {link.cta}
-                  </span>
-                )}
+                <span className="inline-block text-[#1B93A4] text-xs font-black tracking-tight group-hover:translate-x-1 transition-transform">
+                  {link.cta}
+                </span>
               </div>
               
               <div className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
