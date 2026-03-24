@@ -94,4 +94,126 @@ export const BLOG_POSTS = [
   { id: 4, slug: 'roi-transformacion-digital', title: 'Cómo calcular el ROI de tu inversión en transformación digital', excerpt: 'Métricas claras y metodología práctica para justificar y medir el retorno de tu proyecto de digitalización.', category: 'Estrategia', readTime: '7 min', date: '28 Nov 2024', featured: false },
   { id: 5, slug: 'errores-digitalizacion-pymes', title: '5 errores que cometen las PYMEs al digitalizar (y cómo evitarlos)', excerpt: 'Lecciones aprendidas de más de 50 proyectos de transformación digital en Barcelona.', category: 'Transformación Digital', readTime: '4 min', date: '20 Nov 2024', featured: false },
   { id: 6, slug: 'crm-pequenas-empresas', title: 'El mejor CRM para pequeñas empresas: Guía de selección 2025', excerpt: 'Comparativa honesta de las mejores opciones de CRM para negocios de 5 a 50 empleados.', category: 'Herramientas', readTime: '10 min', date: '15 Nov 2024', featured: false },
+  {
+    id: 8,
+    slug: 'el-verdadero-coste-gestionar-reforma-sin-sistema-mando',
+    title: 'El verdadero coste de gestionar una reforma sin sistema',
+    subtitle: 'Cómo MANDO convierte el caos administrativo en control operativo para empresas y autónomos de la reformas',
+    excerpt: 'Descubre cuánto dinero pierde una empresa de reformas sin un sistema de gestión y cómo MANDO convierte el caos en control.',
+    category: 'Transformación Digital',
+    readTime: '8 min',
+    date: '24 Mar 2026',
+    featured: true,
+    image: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1770925218/MANDO_by_Leapifyes_tajoao.png',
+    sections: [
+      {
+        type: 'intro',
+        content: `Eres bueno en lo tuyo. Muy bueno. Sabes exactamente cuánto material necesitas para una reforma integral. Calculas cargas estructurales mentalmente. Koordinas equipos, resuelves imprevistos y entregas obras que funcionan. Pero hay algo que te quita más tiempo que cualquier obra complicada: La gestión. No es la reforma lo que te agota. Es todo lo demás: presupuestos que tardan días en salir, albaranes perdidos, gastos sin asignar y la sensación constante de no saber cuánto ganas. Y lo peor: sabes que esto te está costando dinero. Esto no es normal. Y no tiene por qué seguir así.`
+      },
+      {
+        type: 'image',
+        url: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1770922699/Captura_de_pantalla_2026-02-12_a_las_19.52.51_seqsuk.png',
+        caption: 'Gestión de presupuestos y costes directos en MANDO.'
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'El problema no es que seas desorganizado'
+      },
+      {
+        type: 'paragraph',
+        content: `El problema es que gestionas una empresa de reformas con herramientas que no están pensadas para reformas. Un Excel genérico, un cuaderno, facturas en Word, albaranes en la guantera... ninguna de estas herramientas está diseñada para el ritmo real de una obra. Mientras tanto: pierdes 6-8 horas semanales en tareas administrativas, tomas decisiones sin datos claros y trabajas más horas pero no ganas más.`
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'Qué cambia con MANDO'
+      },
+      {
+        type: 'paragraph',
+        content: `MANDO no es un software más. Es el sistema de control operativo diseñado específicamente para autónomos y PYMEs de reformas que quieren profesionalizar su gestión sin complicarse la vida.`
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'Control financiero real'
+      },
+      {
+        type: 'paragraph',
+        content: `El problema: No sabes cuánto estás ganando en cada obra hasta que termina. La solución MANDO: Dashboard en tiempo real de Coste vs. Ingreso por obra. Resultado: Tomas decisiones con datos.`
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'Fin del caos de albaranes'
+      },
+      {
+        type: 'paragraph',
+        content: `Foto del albarán, extracción automática, asignación a obra y control total.`
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'Presupuestos profesionales'
+      },
+      {
+        type: 'paragraph',
+        content: `Plantillas, base de precios y automatización para cerrar obras más rápido.`
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'Facturación legal'
+      },
+      {
+        type: 'paragraph',
+        content: `Sistema adaptado a normativa española: Facturas legales, TicketBAI, facturación electrónica y cumplimiento fiscal.`
+      },
+      {
+        type: 'image',
+        url: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1770922699/Captura_de_pantalla_2026-02-12_a_las_19.53.12_e2atlc.png',
+        caption: 'Panel de control operativo y facturación.'
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'Por qué MANDO es diferente'
+      },
+      {
+        type: 'paragraph',
+        content: `Sistema diseñado para reformas. Simplicidad extrema con una interfaz sencilla para uso desde la obra. Todo centralizado: Clientes, proveedores, presupuestos, facturas y gastos. Visibilidad financiera inmediata para decisiones con datos.`
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'Qué consigues con MANDO'
+      },
+      {
+        type: 'paragraph',
+        content: `✅ Recuperas tiempo, ✅ Control total, ✅ Más rentabilidad, ✅ Más crecimiento.`
+      },
+      {
+        type: 'image',
+        url: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1770922699/MANDO_Dashboard.png',
+        caption: 'MANDO Dashboard: Visibilidad total del negocio.'
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'Tu negocio bajo control'
+      },
+      {
+        type: 'paragraph',
+        content: `MANDO convierte el caos en sistema.`
+      }
+    ],
+    cta: {
+      text: 'PRUEBA MANDO GRATIS DURANTE 7 DÍAS',
+      link: 'https://mando.leapifyes.com'
+    },
+    meta: {
+      title: 'El verdadero coste de gestionar una reforma sin sistema | MANDO by Leapifyes',
+      description: 'Descubre cuánto dinero pierde una empresa de reformas sin un sistema de gestión y cómo MANDO convierte el caos en control.'
+    }
+  },
 ];
