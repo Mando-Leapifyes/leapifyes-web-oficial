@@ -33,6 +33,7 @@ import Barcelona from "./pages/Barcelona";
 import Cataluna from "./pages/Cataluna";
 import DiagnosticoPage from "./pages/DiagnosticoPage";
 import ServicioDetalle from "./pages/ServicioDetalle";
+import PostDetail from "./pages/PostDetail";
 import LinkHub from "./pages/LinkHub";
 
 
@@ -102,6 +103,7 @@ function App() {
                 <Route path="/metodo" element={<Metodo />} />
                 <Route path="/empresa" element={<Empresa />} />
                 <Route path="/recursos" element={<Recursos />} />
+                <Route path="/recursos/:slug" element={<PostDetail />} />
                 <Route path="/contacto" element={<Contacto />} />
 
                 {/* Herramientas interactivas */}

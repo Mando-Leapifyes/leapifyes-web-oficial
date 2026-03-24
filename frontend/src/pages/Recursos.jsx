@@ -5,6 +5,7 @@ import { ArrowRight, BookOpen, Clock, ChevronRight, Search } from 'lucide-react'
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import Layout from '../components/layout/Layout';
+import { BLOG_POSTS } from '../lib/blogData';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -16,14 +17,6 @@ const staggerContainer = {
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-const BLOG_POSTS = [
-  { id: 1, slug: 'guia-transformacion-digital-pymes', title: 'Guía Completa de Transformación Digital para PYMEs en 2025', excerpt: 'Todo lo que necesitas saber para digitalizar tu negocio sin morir en el intento. Sin tecnicismos, con ejemplos reales.', category: 'Transformación Digital', readTime: '8 min', date: '15 Dic 2024', featured: true },
-  { id: 2, slug: 'agentes-ia-atencion-cliente', title: 'Cómo los Agentes de IA están revolucionando la atención al cliente', excerpt: 'Casos reales de empresas que han multiplicado su capacidad de atención sin aumentar plantilla.', category: 'Agentes IA', readTime: '6 min', date: '10 Dic 2024', featured: true },
-  { id: 3, slug: 'automatizacion-whatsapp-negocios', title: 'WhatsApp Business + IA: La combinación que multiplica conversiones', excerpt: 'Aprende a configurar un sistema de atención automatizada en WhatsApp que cualifica y convierte 24/7.', category: 'Automatización', readTime: '5 min', date: '5 Dic 2024', featured: false },
-  { id: 4, slug: 'roi-transformacion-digital', title: 'Cómo calcular el ROI de tu inversión en transformación digital', excerpt: 'Métricas claras y metodología práctica para justificar y medir el retorno de tu proyecto de digitalización.', category: 'Estrategia', readTime: '7 min', date: '28 Nov 2024', featured: false },
-  { id: 5, slug: 'errores-digitalizacion-pymes', title: '5 errores que cometen las PYMEs al digitalizar (y cómo evitarlos)', excerpt: 'Lecciones aprendidas de más de 50 proyectos de transformación digital en Barcelona.', category: 'Transformación Digital', readTime: '4 min', date: '20 Nov 2024', featured: false },
-  { id: 6, slug: 'crm-pequenas-empresas', title: 'El mejor CRM para pequeñas empresas: Guía de selección 2025', excerpt: 'Comparativa honesta de las mejores opciones de CRM para negocios de 5 a 50 empleados.', category: 'Herramientas', readTime: '10 min', date: '15 Nov 2024', featured: false },
-];
 
 const CATEGORIES = ['Todos', 'Transformación Digital', 'Agentes IA', 'Automatización', 'Estrategia', 'Herramientas'];
 
@@ -88,21 +81,28 @@ const Recursos = () => {
             <div className="grid md:grid-cols-2 gap-8">
               {featuredPosts.map((post, index) => (
                 <motion.div key={post.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}>
-                  <div className="glass-card-hover overflow-hidden">
-                    <div className="h-48 bg-gradient-to-br from-[#1B93A4]/10 via-[#3B82F6]/10 to-[#D946EF]/10" />
-                    <div className="p-6">
-                      <div className="flex items-center gap-4 mb-3">
-                        <span className="px-3 py-1 bg-[#1B93A4]/20 text-[#1B93A4] text-xs font-medium rounded-full">{post.category}</span>
-                        <span className="flex items-center gap-1 text-xs text-[#8892A4]"><Clock className="w-3 h-3" />{post.readTime}</span>
+                  <Link to={`/recursos/${post.slug}`} className="block h-full group">
+                    <div className="glass-card-hover overflow-hidden h-full">
+                      <div className="h-48 bg-gradient-to-br from-[#1B93A4]/10 via-[#3B82F6]/10 to-[#D946EF]/10 relative">
+                        {post.image && (
+                          <img src={post.image} alt={post.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                        )}
+                        <div className="absolute inset-0 bg-black/20" />
                       </div>
-                      <h3 className="text-xl font-bold text-[#F0F4FF] mb-2 line-clamp-2">{post.title}</h3>
-                      <p className="text-[#8892A4] text-sm mb-4 line-clamp-2">{post.excerpt}</p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-[#8892A4]">{post.date}</span>
-                        <span className="flex items-center gap-1 text-sm font-medium text-[#1B93A4]">Leer más <ChevronRight className="w-4 h-4" /></span>
+                      <div className="p-6">
+                        <div className="flex items-center gap-4 mb-3">
+                          <span className="px-3 py-1 bg-[#1B93A4]/20 text-[#1B93A4] text-xs font-medium rounded-full">{post.category}</span>
+                          <span className="flex items-center gap-1 text-xs text-[#8892A4]"><Clock className="w-3 h-3" />{post.readTime}</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#F0F4FF] mb-2 line-clamp-2 group-hover:text-[#1B93A4] transition-colors">{post.title}</h3>
+                        <p className="text-[#8892A4] text-sm mb-4 line-clamp-2">{post.excerpt}</p>
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs text-[#8892A4]">{post.date}</span>
+                          <span className="flex items-center gap-1 text-sm font-medium text-[#1B93A4]">Leer más <ChevronRight className="w-4 h-4" /></span>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -123,18 +123,20 @@ const Recursos = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.map((post, index) => (
                 <motion.div key={post.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }}>
-                  <div className="glass-card-hover p-6 h-full">
-                    <div className="flex items-center gap-4 mb-3">
-                      <span className="px-3 py-1 bg-white/5 text-[#8892A4] text-xs font-medium rounded-full">{post.category}</span>
-                      <span className="flex items-center gap-1 text-xs text-[#8892A4]"><Clock className="w-3 h-3" />{post.readTime}</span>
+                  <Link to={`/recursos/${post.slug}`} className="block h-full group">
+                    <div className="glass-card-hover p-6 h-full transition-all duration-300">
+                      <div className="flex items-center gap-4 mb-3">
+                        <span className="px-3 py-1 bg-white/5 text-[#8892A4] text-xs font-medium rounded-full">{post.category}</span>
+                        <span className="flex items-center gap-1 text-xs text-[#8892A4]"><Clock className="w-3 h-3" />{post.readTime}</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-[#F0F4FF] mb-2 line-clamp-2 group-hover:text-[#1B93A4] transition-colors">{post.title}</h3>
+                      <p className="text-[#8892A4] text-sm mb-4 line-clamp-2">{post.excerpt}</p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-[#8892A4]">{post.date}</span>
+                        <span className="flex items-center gap-1 text-sm font-medium text-[#8892A4] group-hover:text-[#1B93A4]">Leer <ChevronRight className="w-4 h-4" /></span>
+                      </div>
                     </div>
-                    <h3 className="text-lg font-bold text-[#F0F4FF] mb-2 line-clamp-2">{post.title}</h3>
-                    <p className="text-[#8892A4] text-sm mb-4 line-clamp-2">{post.excerpt}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-[#8892A4]">{post.date}</span>
-                      <span className="flex items-center gap-1 text-sm font-medium text-[#8892A4] hover:text-[#1B93A4]">Leer <ChevronRight className="w-4 h-4" /></span>
-                    </div>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
