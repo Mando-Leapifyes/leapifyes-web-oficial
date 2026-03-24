@@ -108,12 +108,12 @@ export const BLOG_POSTS = [
     sections: [
       {
         type: 'intro',
-        content: `Eres bueno en lo tuyo. Muy bueno. Sabes exactamente cuánto material necesitas para una reforma integral. Calculas cargas estructurales mentalmente. Koordinas equipos, resuelves imprevistos y entregas obras que funcionan. Pero hay algo que te quita más tiempo que cualquier obra complicada: La gestión. No es la reforma lo que te agota. Es todo lo demás: presupuestos que tardan días en salir, albaranes perdidos, gastos sin asignar y la sensación constante de no saber cuánto ganas. Y lo peor: sabes que esto te está costando dinero. Esto no es normal. Y no tiene por qué seguir así.`
+        content: `Eres bueno en lo tuyo. Muy bueno. Sabes exactamente cuánto material necesitas para una reforma integral. Calculas cargas estructurales mentalmente. Coordinas equipos, resuelves imprevistos y entregas obras que funcionan. Pero hay algo que te quita más tiempo que cualquier obra complicada: La gestión. No es la reforma lo que te agota. Es todo lo demás: presupuestos que tardan días en salir, albaranes perdidos, gastos de obra sin asignar, facturas que pospones porque odias el proceso y la sensación constante de no saber exactamente cuánto estás ganando. Y lo peor: sabes que esto te está costando dinero. Obras que parecían rentables y luego descubres que apenas dejaron margen. Clientes que pagan tarde. Compras urgentes a sobreprecio. Esto no es normal. Y no tiene por qué seguir así.`
       },
       {
         type: 'image',
         url: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1770922699/Captura_de_pantalla_2026-02-12_a_las_19.52.51_seqsuk.png',
-        caption: 'Gestión de presupuestos y costes directos en MANDO.'
+        caption: 'Control operativo y financiero en tiempo real con MANDO.'
       },
       {
         type: 'heading',
@@ -122,7 +122,7 @@ export const BLOG_POSTS = [
       },
       {
         type: 'paragraph',
-        content: `El problema es que gestionas una empresa de reformas con herramientas que no están pensadas para reformas. Un Excel genérico, un cuaderno, facturas en Word, albaranes en la guantera... ninguna de estas herramientas está diseñada para el ritmo real de una obra. Mientras tanto: pierdes 6-8 horas semanales en tareas administrativas, tomas decisiones sin datos claros y trabajas más horas pero no ganas más.`
+        content: `El problema es que gestionas una empresa de reformas con herramientas que no están pensadas para reformas. Un Excel genérico, un cuaderno de notas, facturas en Word, albaranes en la guantera, WhatsApps que se pierden... Ninguna de estas herramientas está diseñada para el ritmo real de una obra. Y mientras tanto: pierdes 6-8 horas semanales en tareas administrativas, tomas decisiones sin datos claros, dependes de tu memoria para recordar compromisos y trabajas más horas pero no ganas proporcionalmente más.`
       },
       {
         type: 'heading',
@@ -140,39 +140,39 @@ export const BLOG_POSTS = [
       },
       {
         type: 'paragraph',
-        content: `El problema: No sabes cuánto estás ganando en cada obra hasta que termina. La solución MANDO: Dashboard en tiempo real de Coste vs. Ingreso por obra. Resultado: Tomas decisiones con datos.`
+        content: `El problema: No sabes cuánto estás ganando en cada obra hasta que termina (y a veces ni entonces). La solución MANDO: Dashboard en tiempo real de Coste vs. Ingreso por obra. Ves instantáneamente cuánto llevas gastado, cuánto has facturado, cuánto te queda de margen y si vas rentable o no. Resultado: Tomas decisiones con datos, no con intuición.`
       },
       {
         type: 'heading',
         level: 2,
-        title: 'Fin del caos de albaranes'
+        title: 'Fin del caos de albaranes y compras'
       },
       {
         type: 'paragraph',
-        content: `Foto del albarán, extracción automática, asignación a obra y control total.`
+        content: `El problema: Albaranes perdidos, gastos sin asignar, inventario mental, compras duplicadas. La solución MANDO: Haces foto al albarán desde el almacén → MANDO extrae los datos, actualiza stock y asigna el gasto a la obra correspondiente automáticamente. Resultado: Cero albaranes perdidos. Cero excusas con proveedores. Control total de materiales.`
       },
       {
         type: 'heading',
         level: 2,
-        title: 'Presupuestos profesionales'
+        title: 'Presupuestos profesionales en minutos'
       },
       {
         type: 'paragraph',
-        content: `Plantillas, base de precios y automatización para cerrar obras más rápido.`
+        content: `El problema: Presupuestos que tardan días, con errores de cálculo, olvidando partidas, formato poco profesional. La solución MANDO: Plantillas adaptadas a reformas + bases de datos de precios actualizadas. Generas presupuestos detallados y profesionales en una fracción del tiempo. Resultado: Más presupuestos enviados = más obras cerradas.`
       },
       {
         type: 'heading',
         level: 2,
-        title: 'Facturación legal'
+        title: 'Facturación legal sin quebraderos de cabeza'
       },
       {
         type: 'paragraph',
-        content: `Sistema adaptado a normativa española: Facturas legales, TicketBAI, facturación electrónica y cumplimiento fiscal.`
+        content: `El problema: Normativa española compleja. TicketBAI. Facturación electrónica obligatoria. Miedo a errores con Hacienda. La solución MANDO: Sistema 100% adaptado a normativa española con facturas legales, compatibilidad con TicketBAI y preparación para facturación electrónica obligatoria. Resultado: Duermes tranquilo. Hacienda no es un problema.`
       },
       {
         type: 'image',
         url: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1770922699/Captura_de_pantalla_2026-02-12_a_las_19.53.12_e2atlc.png',
-        caption: 'Panel de control operativo y facturación.'
+        caption: 'Facturación adaptada y cumplimiento legal garantizado.'
       },
       {
         type: 'heading',
@@ -181,7 +181,16 @@ export const BLOG_POSTS = [
       },
       {
         type: 'paragraph',
-        content: `Sistema diseñado para reformas. Simplicidad extrema con una interfaz sencilla para uso desde la obra. Todo centralizado: Clientes, proveedores, presupuestos, facturas y gastos. Visibilidad financiera inmediata para decisiones con datos.`
+        content: `No somos un software genérico "adaptado" a reformas. Somos un sistema pensado desde cero para cómo trabajan realmente las empresas de reformas en España.`
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'Simplicidad extrema y Todo centralizado'
+      },
+      {
+        type: 'paragraph',
+        content: `Si sabes usar WhatsApp, sabes usar MANDO. Interfaz diseñada para usarse con una mano, en obra. Una sola herramienta para clientes, proveedores, presupuestos, albaranes, facturas, gastos y control de obra. Accesible desde móvil, tablet u ordenador. Cada decisión la tomas con datos claros, no con esperanza.`
       },
       {
         type: 'heading',
@@ -190,21 +199,48 @@ export const BLOG_POSTS = [
       },
       {
         type: 'paragraph',
-        content: `✅ Recuperas tiempo, ✅ Control total, ✅ Más rentabilidad, ✅ Más crecimiento.`
+        content: `✅ Recuperas 6-8 horas semanales de administración. ✅ Sabes exactamente cuánto ganas en cada obra, en tiempo real. ✅ Cero albaranes perdidos, cero facturas olvidadas. ✅ Presupuestos profesionales que cierran más obras. ✅ Un negocio que funciona como un sistema, no como un caos personal.`
       },
       {
         type: 'image',
         url: 'https://res.cloudinary.com/dnjsjo6yx/image/upload/v1770922699/MANDO_Dashboard.png',
-        caption: 'MANDO Dashboard: Visibilidad total del negocio.'
+        caption: 'MANDO Dashboard: El centro de mando de tu negocio.'
       },
       {
         type: 'heading',
         level: 2,
-        title: 'Tu negocio bajo control'
+        title: 'A quién NO le sirve MANDO'
       },
       {
         type: 'paragraph',
-        content: `MANDO convierte el caos en sistema.`
+        content: `MANDO no es para ti si prefieres seguir "como siempre" aunque no funcione o si no te importa la rentabilidad. MANDO es para empresarios de reformas que quieren crecer, valoran su tiempo y entienden que el control del negocio no es opcional.`
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'El coste real de no tener control'
+      },
+      {
+        type: 'paragraph',
+        content: `Sin MANDO, puedes perder miles de euros al año en márgenes mal calculados y albaranes perdidos, además de cientos de horas de gestión. Con MANDO, recuperas ese tiempo y aseguras tu rentabilidad.`
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'Tu negocio, bajo control'
+      },
+      {
+        type: 'paragraph',
+        content: `MANDO no hace magia. Hace algo más potente: convierte el caos en sistema. Y un sistema bien montado es lo que separa una empresa rentable de un autónomo sobrepasado.`
+      },
+      {
+        type: 'heading',
+        level: 2,
+        title: 'Prueba MANDO sin compromiso'
+      },
+      {
+        type: 'paragraph',
+        content: `👉 PRUEBA MANDO GRATIS DURANTE 7 DÍAS. Sin tarjeta de crédito. Sin letra pequeña. Sin compromisos. MANDO by Leapifyes: Tu negocio de reformas, bajo control.`
       }
     ],
     cta: {
